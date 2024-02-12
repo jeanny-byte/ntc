@@ -1,4 +1,10 @@
 <template>
+  <div class="container">
+    <!-- Add the score display -->
+    <div class="score-circle">{{ score }}</div>
+
+    <!-- Rest of the template code -->
+  </div>
   <img class="ntclogo" src="../assets/ntclogo.png" />
   <div>
     <div v-if="!testStarted">
@@ -138,10 +144,14 @@ export default {
         ],
       },
       questionsToDisplay: [], // Initialize questionsToDisplay as an empty array
+      totalRounds: 3, // Define total number of rounds
     };
   },
 
   methods: {
+    incrementScore() {
+      this.score++;
+    },
     // Function to increment consecutive correct answers and reset consecutive incorrect answers
     incrementConsecutiveCorrect() {
       this.consecutiveCorrectAnswers++;
@@ -236,50 +246,53 @@ export default {
     },
 
     nextQuestion() {
-    // Check if the selected answer is correct
-    const correctAnswer = this.questionsToDisplay[this.currentIndex].correctAnswer;
-    if (this.selectedAnswer !== correctAnswer) {
-      // Play incorrect sound
-      this.playIncorrectSound();
+      // Check if the selected answer is correct
+      const correctAnswer = this.questionsToDisplay[this.currentIndex].correctAnswer;
+      if (this.selectedAnswer !== correctAnswer) {
+        // Play incorrect sound
+        this.playIncorrectSound();
 
-      // Show thumbs-down animation
-      this.showThumbsDownAnimation();
+        // Show thumbs-down animation
+        this.showThumbsDownAnimation();
 
-      // Show the correct answer
-      this.showCorrectAnswer = true;
+        // Show the correct answer
+        this.showCorrectAnswer = true;
 
-      // Move to the next question after 5 seconds
-      setTimeout(() => {
-        // Hide thumbs-down animation and the correct answer after 5 seconds
-        this.showThumbsDown = false;
-        this.showCorrectAnswer = false;
+        // Move to the next question after 5 seconds
+        setTimeout(() => {
+          // Hide thumbs-down animation and the correct answer after 5 seconds
+          this.showThumbsDown = false;
+          this.showCorrectAnswer = false;
 
-        // Move to the next question
+          // Move to the next question
+          this.currentIndex++;
+
+          // Increment consecutive incorrect answers
+          this.incrementConsecutiveIncorrect();
+
+          // Call function to check for consecutive incorrect answers
+          this.checkConsecutiveIncorrectAnswers();
+        }, 5000);
+      } else {
+        // Increment score
+        this.incrementScore();
+
+        // Play correct sound
+        this.playCorrectSound();
+
+        // Show thumbs-up animation
+        this.showThumbsUpAnimation();
+
+        // Move to the next question if the answer is correct
         this.currentIndex++;
 
-        // Increment consecutive incorrect answers
-        this.incrementConsecutiveIncorrect();
+        // Increment consecutive correct answers
+        this.incrementConsecutiveCorrect();
 
-        // Call function to check for consecutive incorrect answers
-        this.checkConsecutiveIncorrectAnswers();
-      }, 5000);
-    } else {
-      // Play correct sound
-      this.playCorrectSound();
-
-      // Show thumbs-up animation
-      this.showThumbsUpAnimation();
-
-      // Move to the next question if the answer is correct
-      this.currentIndex++;
-
-      // Increment consecutive correct answers
-      this.incrementConsecutiveCorrect();
-
-      // Call function to check for consecutive correct answers
-      this.checkConsecutiveCorrectAnswers();
-    }
-  },
+        // Call function to check for consecutive correct answers
+        this.checkConsecutiveCorrectAnswers();
+      }
+    },
     resetTest() {
       this.userName = "";
       this.selectedCategory = "";
@@ -289,11 +302,48 @@ export default {
       this.score = 0;
       this.questionsToDisplay = [];
     },
+    shuffleQuestions(questions) {
+      // Shuffle the questions array
+      for (let i = questions.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [questions[i], questions[j]] = [questions[j], questions[i]];
+      }
+      return questions;
+    },
   },
 };
 </script>
 
 <style scoped>
+.container {
+  position: relative;
+}
+
+.score-circle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: green;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  animation: float 2s infinite alternate;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
 .correct-answer {
   margin-top: 10px; /* Adjust spacing as needed */
 }

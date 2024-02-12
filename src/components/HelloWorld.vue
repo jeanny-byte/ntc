@@ -53,6 +53,10 @@
     </li>
   </ul>
   <button @click="nextQuestion" class="next-button">Next</button>
+  <!--Hidden div-->
+  <div v-if="showCorrectAnswer" class="correct-answer">
+    Correct answer: <span style="color: green; font-weight: bold;">{{ questionsToDisplay[currentIndex].correctAnswer }}</span>
+  </div>
 </div>
 
       <div v-else>
@@ -80,49 +84,50 @@
 <script>
 export default {
   data() {
-    return {
-      showThumbsUp: false,
-      showThumbsDown: false,
-      highlightCorrectAnswer: false,
-      userName: "",
-      selectedCategory: "",
-      testStarted: false,
-      currentIndex: 0,
-      selectedAnswer: null,
-      score: 0,
-      categories: [
-        { id: 1, name: "category1" },
-        { id: 2, name: "category2" },
-        // Add more categories here
+  return {
+    showThumbsUp: false,
+    showThumbsDown: false,
+    highlightCorrectAnswer: false,
+    showCorrectAnswer: false, // Add this line
+    userName: "",
+    selectedCategory: "",
+    testStarted: false,
+    currentIndex: 0,
+    selectedAnswer: null,
+    score: 0,
+    categories: [
+      { id: 1, name: "category1" },
+      { id: 2, name: "category2" },
+      // Add more categories here
+    ],
+    questions: {
+      // Define questions for each category
+      category1: [
+        {
+          text: "Question 1 for Category 1?",
+          options: ["Option A", "Option B", "Option C"],
+          correctAnswer: "Option A",
+        },
+        {
+          text: "Question 2 for Category 1?",
+          options: ["Option A", "Option B", "Option C"],
+          correctAnswer: "Option B",
+        },
+        // Add more questions for Category 1 here
       ],
-      questions: {
-        // Define questions for each category
-        category1: [
-          {
-            text: "Question 1 for Category 1?",
-            options: ["Option A", "Option B", "Option C"],
-            correctAnswer: "Option A",
-          },
-          {
-            text: "Question 2 for Category 1?",
-            options: ["Option A", "Option B", "Option C"],
-            correctAnswer: "Option B",
-          },
-          // Add more questions for Category 1 here
-        ],
-        category2: [
-          {
-            text: "Question 1 for Category 2?",
-            options: ["Option A", "Option B", "Option C"],
-            correctAnswer: "Option B",
-          },
-          // Add more questions for Category 2 here
-        ],
-      },
-      questionsToDisplay: [], // Initialize questionsToDisplay as an empty array
-      
-    };
-  },
+      category2: [
+        {
+          text: "Question 1 for Category 2?",
+          options: ["Option A", "Option B", "Option C"],
+          correctAnswer: "Option B",
+        },
+        // Add more questions for Category 2 here
+      ],
+    },
+    questionsToDisplay: [], // Initialize questionsToDisplay as an empty array
+  };
+},
+
   methods: {
     playCorrectSound() {
       const audio = new Audio(require('../assets/sounds/correct.mp3'));
@@ -165,34 +170,39 @@ export default {
 
 
 nextQuestion() {
-      // Check if the selected answer is correct
-      const correctAnswer = this.questionsToDisplay[this.currentIndex].correctAnswer;
-      if (this.selectedAnswer !== correctAnswer) {
-        // Play incorrect sound
-        this.playIncorrectSound();
+  // Check if the selected answer is correct
+  const correctAnswer = this.questionsToDisplay[this.currentIndex].correctAnswer;
+  if (this.selectedAnswer !== correctAnswer) {
+    // Play incorrect sound
+    this.playIncorrectSound();
 
-        // Show thumbs-down animation
-        this.showThumbsDownAnimation();
+    // Show thumbs-down animation
+    this.showThumbsDownAnimation();
 
-        // Set highlightCorrectAnswer to true to indicate the correct answer should be highlighted
-        this.highlightCorrectAnswer = true;
-        // Move to the next question after 5 seconds
-        setTimeout(() => {
-          this.currentIndex++;
-          // Reset highlightCorrectAnswer to false after moving to the next question
-          this.highlightCorrectAnswer = false;
-        }, 5000);
-      } else {
-        // Play correct sound
-        this.playCorrectSound();
-        
-        // Show thumbs-up animation
-        this.showThumbsUpAnimation();
-        
-        // Move to the next question if the answer is correct
-        this.currentIndex++;
-      }
-    },
+    // Show the correct answer
+    this.showCorrectAnswer = true;
+
+    // Move to the next question after 5 seconds
+    setTimeout(() => {
+      // Hide thumbs-down animation and the correct answer after 5 seconds
+      this.showThumbsDown = false;
+      this.showCorrectAnswer = false;
+
+      // Move to the next question
+      this.currentIndex++;
+    }, 5000);
+  } else {
+    // Play correct sound
+    this.playCorrectSound();
+
+    // Show thumbs-up animation
+    this.showThumbsUpAnimation();
+
+    // Move to the next question if the answer is correct
+    this.currentIndex++;
+  }
+},
+
 
   
 
@@ -211,6 +221,10 @@ nextQuestion() {
 </script>
 
 <style scoped>
+.correct-answer {
+  margin-top: 10px; /* Adjust spacing as needed */
+}
+
 /* Thumbs-up animation */
 @keyframes thumbsUp {
   0% {

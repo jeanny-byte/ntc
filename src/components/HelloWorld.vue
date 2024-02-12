@@ -65,12 +65,24 @@
       </div>
     </div>
   </div>
+   <!-- Thumbs-up icon -->
+   <div v-if="showThumbsUp" class="thumbs-up">
+      👍
+    </div>
+
+    <!-- Thumbs-down icon -->
+    <div v-if="showThumbsDown" class="thumbs-down">
+      👎
+    </div>
+  
 </template>
 
 <script>
 export default {
   data() {
     return {
+      showThumbsUp: false,
+      showThumbsDown: false,
       highlightCorrectAnswer: false,
       userName: "",
       selectedCategory: "",
@@ -108,6 +120,7 @@ export default {
         ],
       },
       questionsToDisplay: [], // Initialize questionsToDisplay as an empty array
+      
     };
   },
   methods: {
@@ -119,6 +132,19 @@ export default {
     playIncorrectSound() {
       const audio = new Audio(require('../assets/sounds/incorrect.mp3'));
       audio.play();
+    },
+    showThumbsUpAnimation() {
+      this.showThumbsUp = true;
+      setTimeout(() => {
+        this.showThumbsUp = false;
+      }, 2000); // Adjust the duration as needed
+    },
+
+    showThumbsDownAnimation() {
+      this.showThumbsDown = true;
+      setTimeout(() => {
+        this.showThumbsDown = false;
+      }, 2000); // Adjust the duration as needed
     },
     startTest() {
   if (this.userName && this.selectedCategory) {
@@ -137,29 +163,36 @@ export default {
 },
 
 
-nextQuestion() {
-  // Check if the selected answer is correct
-  const correctAnswer = this.questionsToDisplay[this.currentIndex].correctAnswer;
-  if (this.selectedAnswer !== correctAnswer) {
-    // Play incorrect sound
-    this.playIncorrectSound();
 
-    // Set highlightCorrectAnswer to true to indicate the correct answer should be highlighted
-    this.highlightCorrectAnswer = true;
-    // Move to the next question after 5 seconds
-    setTimeout(() => {
-      this.currentIndex++;
-      // Reset highlightCorrectAnswer to false after moving to the next question
-      this.highlightCorrectAnswer = false;
-    }, 5000);
-  } else {
-    // Play correct sound
-    this.playCorrectSound();
-    
-    // Move to the next question if the answer is correct
-    this.currentIndex++;
-  }
-},
+nextQuestion() {
+      // Check if the selected answer is correct
+      const correctAnswer = this.questionsToDisplay[this.currentIndex].correctAnswer;
+      if (this.selectedAnswer !== correctAnswer) {
+        // Play incorrect sound
+        this.playIncorrectSound();
+
+        // Show thumbs-down animation
+        this.showThumbsDownAnimation();
+
+        // Set highlightCorrectAnswer to true to indicate the correct answer should be highlighted
+        this.highlightCorrectAnswer = true;
+        // Move to the next question after 5 seconds
+        setTimeout(() => {
+          this.currentIndex++;
+          // Reset highlightCorrectAnswer to false after moving to the next question
+          this.highlightCorrectAnswer = false;
+        }, 5000);
+      } else {
+        // Play correct sound
+        this.playCorrectSound();
+        
+        // Show thumbs-up animation
+        this.showThumbsUpAnimation();
+        
+        // Move to the next question if the answer is correct
+        this.currentIndex++;
+      }
+    },
 
   
 
@@ -178,6 +211,55 @@ nextQuestion() {
 </script>
 
 <style scoped>
+/* Thumbs-up animation */
+@keyframes thumbsUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-50px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+}
+
+.thumbs-up {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 30px;
+  color: green;
+  animation: thumbsUp 2s ease-out;
+}
+
+/* Thumbs-down animation */
+@keyframes thumbsDown {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-50px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+}
+
+.thumbs-down {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 30px;
+  color: red;
+  animation: thumbsDown 2s ease-out;
+}
 /* Component-specific styles */
 
 .ntclogo{

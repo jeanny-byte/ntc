@@ -7,42 +7,31 @@
         <ul type="none">
           <li>
             Start: To begin, enter your name and select a category of questions
-            you'd like to be tested on.
-          </li>
-          <li>
+            you'd like to be tested on.<br>
             Test: Once you start the test, you'll be presented with a series of
-            multiple-choice questions.
-          </li>
-          <li>
+            multiple-choice questions.<br>
             Answer: Choose the option you think is correct for each question. If
-            you're unsure, take your best guess!
-          </li>
-          <li>
+            you're unsure, take your best guess!<br>
+         
             Feedback: If you select the correct answer, well done! If not, don't
             worry. The correct answer will be revealed before moving to the next
-            question.
-          </li>
-          <li>
+            question.<br>
+         
             Scoring: Your score will be calculated based on the number of
-            correct answers.
-          </li>
-          <li>
-            Passing Grade: To pass the quiz, you'll need to score 80% or higher.
-          </li>
-          <li>
-            Result: After answering all questions, you'll receive immediate
-            feedback on whether you passed or need to try again.
-          </li>
-          <li>
+            correct answers.<br>
+         
+            Passing Grade: To pass the quiz, you'll need to score 80% or higher.<br>
+      
+            Result: After answering all questions, you'll receive immediate<br>
+            feedback on whether you passed or need to try again.<br>
             Good Luck!: Best of luck with the quiz. Have fun and test your
             knowledge!
           </li>
         </ul>
       </div>
 
-      <!-- Initial Popup -->
       <div class="popup">
-        <h2>Welcome to the Test</h2>
+        <h2>Welcome to NTC Training Module Test</h2>
         <input type="text" placeholder="Enter your name" v-model="userName" />
         <select v-model="selectedCategory">
           <option value="">Select a category</option>
@@ -59,24 +48,29 @@
     </div>
     <div v-else>
       <!-- Question Carousel -->
-      <div v-if="currentIndex < questions.length">
-        <h2>{{ currentIndex + 1 }}. {{ questions[currentIndex].text }}</h2>
-        <ul>
-          <li
-            v-for="(option, index) in questions[currentIndex].options"
-            :key="index"
-          >
-            <input
-              type="radio"
-              :id="'option' + index"
-              :value="option"
-              v-model="selectedAnswer"
-            />
-            <label :for="'option' + index">{{ option }}</label>
-          </li>
-        </ul>
-        <button @click="nextQuestion">Next</button>
-      </div>
+      <div v-if="currentIndex < questionsToDisplay.length" class="carousel-container">
+  <h2 class="question-title">
+    {{ currentIndex + 1 }}. {{ questionsToDisplay[currentIndex].text }}
+  </h2>
+  <ul class="options-list">
+    <li
+      v-for="(option, index) in questionsToDisplay[currentIndex].options"
+      :key="index"
+      class="option-item"
+    >
+      <input
+        type="radio"
+        :id="'option' + index"
+        :value="option"
+        v-model="selectedAnswer"
+        class="option-input"
+      />
+      <label :for="'option' + index" class="option-label">{{ option }}</label>
+    </li>
+  </ul>
+  <button @click="nextQuestion" class="next-button">Next</button>
+</div>
+
       <div v-else>
         <!-- Scoring and Feedback Popup -->
         <div class="popup">
@@ -93,6 +87,7 @@
 export default {
   data() {
     return {
+      highlightCorrectAnswer: false,
       userName: "",
       selectedCategory: "",
       testStarted: false,
@@ -100,8 +95,8 @@ export default {
       selectedAnswer: null,
       score: 0,
       categories: [
-        { id: 1, name: "Category 1" },
-        { id: 2, name: "Category 2" },
+        { id: 1, name: "category1" },
+        { id: 2, name: "category2" },
         // Add more categories here
       ],
       questions: {
@@ -111,6 +106,11 @@ export default {
             text: "Question 1 for Category 1?",
             options: ["Option A", "Option B", "Option C"],
             correctAnswer: "Option A",
+          },
+          {
+            text: "Question 2 for Category 1?",
+            options: ["Option A", "Option B", "Option C"],
+            correctAnswer: "Option B",
           },
           // Add more questions for Category 1 here
         ],
@@ -122,31 +122,48 @@ export default {
           },
           // Add more questions for Category 2 here
         ],
-        // Add more categories and questions here
       },
+      questionsToDisplay: [], // Initialize questionsToDisplay as an empty array
     };
   },
   methods: {
     startTest() {
-      if (this.userName && this.selectedCategory) {
-        // Select questions based on the chosen category
-        this.questionsToDisplay = this.questions[this.selectedCategory];
-        this.testStarted = true;
+  if (this.userName && this.selectedCategory) {
+    // Find the selected category object by its ID
+    const selectedCategory = this.categories.find(category => category.id === this.selectedCategory);
+    if (selectedCategory) {
+      // Select questions based on the chosen category name
+      this.questionsToDisplay = this.questions[selectedCategory.name];
+      this.testStarted = true;
+    } else {
+      alert("Invalid category selected. Please choose a valid category.");
+    }
+  } else {
+    alert("Please enter your name and select a category to start the test.");
+  }
+},
+
+
+nextQuestion() {
+      // Check if the selected answer is correct
+      const correctAnswer = this.questionsToDisplay[this.currentIndex].correctAnswer;
+      if (this.selectedAnswer !== correctAnswer) {
+        // Set highlightCorrectAnswer to true to indicate the correct answer should be highlighted
+        this.highlightCorrectAnswer = true;
+        // Move to the next question after 5 seconds
+        setTimeout(() => {
+          this.currentIndex++;
+          // Reset highlightCorrectAnswer to false after moving to the next question
+          this.highlightCorrectAnswer = false;
+        }, 5000);
       } else {
-        alert(
-          "Please enter your name and select a category to start the test."
-        );
+        // Move to the next question if the answer is correct
+        this.currentIndex++;
       }
     },
-    nextQuestion() {
-      if (
-        this.selectedAnswer ===
-        this.questionsToDisplay[this.currentIndex].correctAnswer
-      ) {
-        this.score++;
-      }
-      this.currentIndex++;
-    },
+  
+
+
     resetTest() {
       this.userName = "";
       this.selectedCategory = "";
@@ -162,16 +179,90 @@ export default {
 
 <style scoped>
 /* Component-specific styles */
-.popup {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #fff;
+.carousel-container {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.question-title {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.options-list {
+  list-style: none;
+  padding: 0;
+}
+
+.option-item {
+  margin-bottom: 10px;
+}
+
+.option-input {
+  margin-right: 10px;
+}
+
+.option-label {
+  font-size: 16px;
+}
+
+.next-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.next-button:hover {
+  background-color: #0056b3;
+}
+
+.popup {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.popup h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.popup input[type="text"],
+.popup select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.popup button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.popup button:hover {
+  background-color: #0056b3;
 }
 .quiz-rules {
   color: red;

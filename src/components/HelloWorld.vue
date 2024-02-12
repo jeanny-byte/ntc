@@ -3,7 +3,7 @@
   <div>
     <div v-if="!testStarted">
       <div class="quiz-rules">
-        <p>Welcome to our quiz! Here's how it works:</p>
+        <p>Welcome to the NTC Non-Professional teachers quize! Here's how it works:</p>
         <ul type="none">
           <li>
             Answer: Choose the option you think is correct for each question. If
@@ -281,6 +281,7 @@ nextQuestion() {
   width: 15%;
 }
 .carousel-container {
+  margin-top: 15px;
   background-color: #f8f9fa;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -382,6 +383,7 @@ nextQuestion() {
 .quiz-rules {
   color: red;
   font-size: 11px;
+  margin-bottom: 30px;
 
 }
 </style>

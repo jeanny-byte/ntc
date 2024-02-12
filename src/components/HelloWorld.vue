@@ -112,12 +112,12 @@ export default {
   },
   methods: {
     playCorrectSound() {
-      const audio = new Audio(require('../assets/correct.mp3'));
+      const audio = new Audio(require('../assets/sounds/correct.mp3'));
       audio.play();
     },
     
     playIncorrectSound() {
-      const audio = new Audio(require('../assets/incorrect.mp3'));
+      const audio = new Audio(require('../assets/sounds/incorrect.mp3'));
       audio.play();
     },
     startTest() {

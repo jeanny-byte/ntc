@@ -1,9 +1,5 @@
 <template>
-  <ins class="adsbygoogle"
-   style="display:block"
-   data-ad-client="ca-pub-7479790801931922"
-   data-ad-slot="1234567890"
-   data-ad-format="auto"></ins>
+ <div id="adsgoeshere" style="background: #1d1f29; padding-top:60px; text-align: center;" v-html="adsenseContent"></div>
 
   <div class="container">
     <!-- Add the score display -->
@@ -103,6 +99,7 @@
 export default {
   data() {
     return {
+      adsenseContent: '',
       consecutiveCorrectAnswers: 0, // Track consecutive correct answers
       consecutiveIncorrectAnswers: 0, // Track consecutive incorrect answers
       showThumbsUp: false,
@@ -155,6 +152,7 @@ export default {
   },
 
   methods: {
+    
     incrementScore() {
       this.score++;
     },
@@ -318,16 +316,7 @@ export default {
     },
   },
   mounted() {
-  const adsbygoogle = window.adsbygoogle || [];
-  adsbygoogle.push({});
-  if (adsbygoogle.loaded) {
-    adsbygoogle.push({});
-  } else {
-    adsbygoogle.push({
-      google_ad_client: "ca-pub-7479790801931922", // Replace with your AdSense client ID
-      enable_page_level_ads: true // Set to true if you are using Page-Level ads
-    });
-  }
+    this.adsenseContent = document.getElementById('divadsensedisplaynone').innerHTML
 },
 };
 </script>

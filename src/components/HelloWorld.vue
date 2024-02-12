@@ -111,6 +111,15 @@ export default {
     };
   },
   methods: {
+    playCorrectSound() {
+      const audio = new Audio(require('../assets/correct.mp3'));
+      audio.play();
+    },
+    
+    playIncorrectSound() {
+      const audio = new Audio(require('../assets/incorrect.mp3'));
+      audio.play();
+    },
     startTest() {
   if (this.userName && this.selectedCategory) {
     // Find the selected category object by its ID
@@ -129,22 +138,29 @@ export default {
 
 
 nextQuestion() {
-      // Check if the selected answer is correct
-      const correctAnswer = this.questionsToDisplay[this.currentIndex].correctAnswer;
-      if (this.selectedAnswer !== correctAnswer) {
-        // Set highlightCorrectAnswer to true to indicate the correct answer should be highlighted
-        this.highlightCorrectAnswer = true;
-        // Move to the next question after 5 seconds
-        setTimeout(() => {
-          this.currentIndex++;
-          // Reset highlightCorrectAnswer to false after moving to the next question
-          this.highlightCorrectAnswer = false;
-        }, 5000);
-      } else {
-        // Move to the next question if the answer is correct
-        this.currentIndex++;
-      }
-    },
+  // Check if the selected answer is correct
+  const correctAnswer = this.questionsToDisplay[this.currentIndex].correctAnswer;
+  if (this.selectedAnswer !== correctAnswer) {
+    // Play incorrect sound
+    this.playIncorrectSound();
+
+    // Set highlightCorrectAnswer to true to indicate the correct answer should be highlighted
+    this.highlightCorrectAnswer = true;
+    // Move to the next question after 5 seconds
+    setTimeout(() => {
+      this.currentIndex++;
+      // Reset highlightCorrectAnswer to false after moving to the next question
+      this.highlightCorrectAnswer = false;
+    }, 5000);
+  } else {
+    // Play correct sound
+    this.playCorrectSound();
+    
+    // Move to the next question if the answer is correct
+    this.currentIndex++;
+  }
+},
+
   
 
 
@@ -163,6 +179,7 @@ nextQuestion() {
 
 <style scoped>
 /* Component-specific styles */
+
 .ntclogo{
   height: 15%;
   width: 15%;

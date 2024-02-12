@@ -85,7 +85,7 @@
       <div v-else>
         <!-- Scoring and Feedback Popup -->
         <div class="popup">
-          <h2 v-if="score >= 80">Congratulations, {{ userName }}!</h2>
+          <h2 v-if="score >= 17">Congratulations, {{ userName }}!</h2>
           <h2 v-else>Sorry, {{ userName }}, you didn't pass.</h2>
           <button @click="resetTest">Close</button>
         </div>

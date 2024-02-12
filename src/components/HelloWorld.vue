@@ -1,4 +1,10 @@
 <template>
+  <ins class="adsbygoogle"
+   style="display:block"
+   data-ad-client="ca-pub-7479790801931922"
+   data-ad-slot="1234567890"
+   data-ad-format="auto"></ins>
+
   <div class="container">
     <!-- Add the score display -->
     <div class="score-circle">{{ score }}</div>
@@ -311,6 +317,18 @@ export default {
       return questions;
     },
   },
+  mounted() {
+  const adsbygoogle = window.adsbygoogle || [];
+  adsbygoogle.push({});
+  if (adsbygoogle.loaded) {
+    adsbygoogle.push({});
+  } else {
+    adsbygoogle.push({
+      google_ad_client: "ca-pub-7479790801931922", // Replace with your AdSense client ID
+      enable_page_level_ads: true // Set to true if you are using Page-Level ads
+    });
+  }
+},
 };
 </script>
 

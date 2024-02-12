@@ -3,13 +3,16 @@
   <div>
     <div v-if="!testStarted">
       <div class="quiz-rules">
-        <p>Welcome to the NTC Non-Professional teachers quize! Here's how it works:</p>
+        <p>
+          Welcome to the NTC Non-Professional teachers quize! Here's how it
+          works:
+        </p>
         <ul type="none">
           <li>
             Answer: Choose the option you think is correct for each question. If
-            you're unsure, take your best guess!<br>
-            Passing Grade: To pass the quiz, you'll need to score 80% or higher.<br>
-  
+            you're unsure, take your best guess!<br />
+            Passing Grade: To pass the quiz, you'll need to score 80% or
+            higher.<br />
           </li>
         </ul>
       </div>
@@ -32,32 +35,40 @@
     </div>
     <div v-else>
       <!-- Question Carousel -->
-      <div v-if="currentIndex < questionsToDisplay.length" class="carousel-container">
-  <h2 class="question-title">
-    {{ currentIndex + 1 }}. {{ questionsToDisplay[currentIndex].text }}
-  </h2>
-  <ul class="options-list">
-    <li
-      v-for="(option, index) in questionsToDisplay[currentIndex].options"
-      :key="index"
-      class="option-item"
-    >
-      <input
-        type="radio"
-        :id="'option' + index"
-        :value="option"
-        v-model="selectedAnswer"
-        class="option-input"
-      />
-      <label :for="'option' + index" class="option-label">{{ option }}</label>
-    </li>
-  </ul>
-  <button @click="nextQuestion" class="next-button">Next</button>
-  <!--Hidden div-->
-  <div v-if="showCorrectAnswer" class="correct-answer">
-    Correct answer: <span style="color: green; font-weight: bold;">{{ questionsToDisplay[currentIndex].correctAnswer }}</span>
-  </div>
-</div>
+      <div
+        v-if="currentIndex < questionsToDisplay.length"
+        class="carousel-container"
+      >
+        <h2 class="question-title">
+          {{ currentIndex + 1 }}. {{ questionsToDisplay[currentIndex].text }}
+        </h2>
+        <ul class="options-list">
+          <li
+            v-for="(option, index) in questionsToDisplay[currentIndex].options"
+            :key="index"
+            class="option-item"
+          >
+            <input
+              type="radio"
+              :id="'option' + index"
+              :value="option"
+              v-model="selectedAnswer"
+              class="option-input"
+            />
+            <label :for="'option' + index" class="option-label">{{
+              option
+            }}</label>
+          </li>
+        </ul>
+        <button @click="nextQuestion" class="next-button">Next</button>
+        <!--Hidden div-->
+        <div v-if="showCorrectAnswer" class="correct-answer">
+          Correct answer:
+          <span style="color: green; font-weight: bold">{{
+            questionsToDisplay[currentIndex].correctAnswer
+          }}</span>
+        </div>
+      </div>
 
       <div v-else>
         <!-- Scoring and Feedback Popup -->
@@ -69,73 +80,126 @@
       </div>
     </div>
   </div>
-   <!-- Thumbs-up icon -->
-   <div v-if="showThumbsUp" class="thumbs-up">
-      👍
-    </div>
+  <!-- Thumbs-up icon -->
+  <div v-if="showThumbsUp" class="thumbs-up">👍</div>
 
-    <!-- Thumbs-down icon -->
-    <div v-if="showThumbsDown" class="thumbs-down">
-      👎
-    </div>
-  
+  <!-- Thumbs-down icon -->
+  <div v-if="showThumbsDown" class="thumbs-down">👎</div>
 </template>
 
 <script>
 export default {
   data() {
-  return {
-    showThumbsUp: false,
-    showThumbsDown: false,
-    highlightCorrectAnswer: false,
-    showCorrectAnswer: false, // Add this line
-    userName: "",
-    selectedCategory: "",
-    testStarted: false,
-    currentIndex: 0,
-    selectedAnswer: null,
-    score: 0,
-    categories: [
-      { id: 1, name: "category1" },
-      { id: 2, name: "category2" },
-      // Add more categories here
-    ],
-    questions: {
-      // Define questions for each category
-      category1: [
-        {
-          text: "Question 1 for Category 1?",
-          options: ["Option A", "Option B", "Option C"],
-          correctAnswer: "Option A",
-        },
-        {
-          text: "Question 2 for Category 1?",
-          options: ["Option A", "Option B", "Option C"],
-          correctAnswer: "Option B",
-        },
-        // Add more questions for Category 1 here
+    return {
+      consecutiveCorrectAnswers: 0, // Track consecutive correct answers
+      consecutiveIncorrectAnswers: 0, // Track consecutive incorrect answers
+      showThumbsUp: false,
+      showThumbsDown: false,
+      highlightCorrectAnswer: false,
+      showCorrectAnswer: false, // Add this line
+      userName: "",
+      selectedCategory: "",
+      testStarted: false,
+      currentIndex: 0,
+      selectedAnswer: null,
+      score: 0,
+      categories: [
+        { id: 1, name: "category1" },
+        { id: 2, name: "category2" },
+        // Add more categories here
       ],
-      category2: [
-        {
-          text: "Question 1 for Category 2?",
-          options: ["Option A", "Option B", "Option C"],
-          correctAnswer: "Option B",
-        },
-        // Add more questions for Category 2 here
-      ],
-    },
-    questionsToDisplay: [], // Initialize questionsToDisplay as an empty array
-  };
-},
+      questions: {
+        // Define questions for each category
+        category1: [
+          {
+            text: "Question 1 for Category 1?",
+            options: ["Option A", "Option B", "Option C"],
+            correctAnswer: "Option A",
+          },
+          {
+            text: "Question 2 for Category 1?",
+            options: ["Option A", "Option B", "Option C"],
+            correctAnswer: "Option B",
+          },
+          {
+            text: "Question 3 for Category 1?",
+            options: ["Option A", "Option B", "Option C"],
+            correctAnswer: "Option C",
+          },
+          // Add more questions for Category 1 here
+        ],
+        category2: [
+          {
+            text: "Question 1 for Category 2?",
+            options: ["Option A", "Option B", "Option C"],
+            correctAnswer: "Option B",
+          },
+          // Add more questions for Category 2 here
+        ],
+      },
+      questionsToDisplay: [], // Initialize questionsToDisplay as an empty array
+    };
+  },
 
   methods: {
-    playCorrectSound() {
-      const audio = new Audio(require('../assets/sounds/correct.mp3'));
+    // Function to increment consecutive correct answers and reset consecutive incorrect answers
+    incrementConsecutiveCorrect() {
+      this.consecutiveCorrectAnswers++;
+      this.consecutiveIncorrectAnswers = 0;
+    },
+
+    // Function to increment consecutive incorrect answers and reset consecutive correct answers
+    incrementConsecutiveIncorrect() {
+      this.consecutiveIncorrectAnswers++;
+      this.consecutiveCorrectAnswers = 0;
+    },
+    // Function to play a random audio file from the "cheer" folder
+    playRandomCheerAudio() {
+      const folder = "cheer";
+      const audioFiles = [
+        require(`../assets/sounds/${folder}/Ala Bossu.aac`),
+        require(`../assets/sounds/${folder}/nosize.aac`),
+      ];
+      const randomIndex = Math.floor(Math.random() * audioFiles.length);
+      const audio = new Audio(audioFiles[randomIndex]);
       audio.play();
     },
-    
+
+    // Function to play a random audio file from the "motivate" folder
+    playRandomMotivateAudio() {
+      const folder = "motivate";
+      const audioFiles = [
+        require(`../assets/sounds/${folder}/suffer.aac`),
+        require(`../assets/sounds/${folder}/tire.aac`),
+        require(`../assets/sounds/${folder}/try.aac`),
+      ];
+      const randomIndex = Math.floor(Math.random() * audioFiles.length);
+      const audio = new Audio(audioFiles[randomIndex]);
+      audio.play();
+    },
+
+    checkConsecutiveCorrectAnswers() {
+      if (this.consecutiveCorrectAnswers === 2) {
+        // Change to 2 as it starts from 0
+        this.playRandomCheerAudio();
+      }
+    },
+
+    // Function to check for three consecutive incorrect answers
+    checkConsecutiveIncorrectAnswers() {
+      if (this.consecutiveIncorrectAnswers === 2) {
+        // Change to 2 as it starts from 0
+        this.playRandomMotivateAudio();
+      }
+    },
+
+    playCorrectSound() {
+      const audio = new Audio(require("../assets/sounds/correct.mp3"));
+      audio.play();
+    },
+
     playIncorrectSound() {
-      const audio = new Audio(require('../assets/sounds/incorrect.mp3'));
+      const audio = new Audio(require("../assets/sounds/incorrect.mp3"));
       audio.play();
     },
     showThumbsUpAnimation() {
@@ -152,61 +216,70 @@ export default {
       }, 2000); // Adjust the duration as needed
     },
     startTest() {
-  if (this.userName && this.selectedCategory) {
-    // Find the selected category object by its ID
-    const selectedCategory = this.categories.find(category => category.id === this.selectedCategory);
-    if (selectedCategory) {
-      // Select questions based on the chosen category name
-      this.questionsToDisplay = this.questions[selectedCategory.name];
-      this.testStarted = true;
+      if (this.userName && this.selectedCategory) {
+        // Find the selected category object by its ID
+        const selectedCategory = this.categories.find(
+          (category) => category.id === this.selectedCategory
+        );
+        if (selectedCategory) {
+          // Select questions based on the chosen category name
+          this.questionsToDisplay = this.questions[selectedCategory.name];
+          this.testStarted = true;
+        } else {
+          alert("Invalid category selected. Please choose a valid category.");
+        }
+      } else {
+        alert(
+          "Please enter your name and select a category to start the test."
+        );
+      }
+    },
+
+    nextQuestion() {
+    // Check if the selected answer is correct
+    const correctAnswer = this.questionsToDisplay[this.currentIndex].correctAnswer;
+    if (this.selectedAnswer !== correctAnswer) {
+      // Play incorrect sound
+      this.playIncorrectSound();
+
+      // Show thumbs-down animation
+      this.showThumbsDownAnimation();
+
+      // Show the correct answer
+      this.showCorrectAnswer = true;
+
+      // Move to the next question after 5 seconds
+      setTimeout(() => {
+        // Hide thumbs-down animation and the correct answer after 5 seconds
+        this.showThumbsDown = false;
+        this.showCorrectAnswer = false;
+
+        // Move to the next question
+        this.currentIndex++;
+
+        // Increment consecutive incorrect answers
+        this.incrementConsecutiveIncorrect();
+
+        // Call function to check for consecutive incorrect answers
+        this.checkConsecutiveIncorrectAnswers();
+      }, 5000);
     } else {
-      alert("Invalid category selected. Please choose a valid category.");
-    }
-  } else {
-    alert("Please enter your name and select a category to start the test.");
-  }
-},
+      // Play correct sound
+      this.playCorrectSound();
 
+      // Show thumbs-up animation
+      this.showThumbsUpAnimation();
 
-
-nextQuestion() {
-  // Check if the selected answer is correct
-  const correctAnswer = this.questionsToDisplay[this.currentIndex].correctAnswer;
-  if (this.selectedAnswer !== correctAnswer) {
-    // Play incorrect sound
-    this.playIncorrectSound();
-
-    // Show thumbs-down animation
-    this.showThumbsDownAnimation();
-
-    // Show the correct answer
-    this.showCorrectAnswer = true;
-
-    // Move to the next question after 5 seconds
-    setTimeout(() => {
-      // Hide thumbs-down animation and the correct answer after 5 seconds
-      this.showThumbsDown = false;
-      this.showCorrectAnswer = false;
-
-      // Move to the next question
+      // Move to the next question if the answer is correct
       this.currentIndex++;
-    }, 5000);
-  } else {
-    // Play correct sound
-    this.playCorrectSound();
 
-    // Show thumbs-up animation
-    this.showThumbsUpAnimation();
+      // Increment consecutive correct answers
+      this.incrementConsecutiveCorrect();
 
-    // Move to the next question if the answer is correct
-    this.currentIndex++;
-  }
-},
-
-
-  
-
-
+      // Call function to check for consecutive correct answers
+      this.checkConsecutiveCorrectAnswers();
+    }
+  },
     resetTest() {
       this.userName = "";
       this.selectedCategory = "";
@@ -276,7 +349,7 @@ nextQuestion() {
 }
 /* Component-specific styles */
 
-.ntclogo{
+.ntclogo {
   height: 15%;
   width: 15%;
 }
@@ -328,11 +401,12 @@ nextQuestion() {
   background-color: #0056b3;
 }
 
-@media (max-width: 768px) { /* Adjust styles for screens smaller than 768px */
+@media (max-width: 768px) {
+  /* Adjust styles for screens smaller than 768px */
   .carousel-container {
     padding: 10px; /* Reduce padding */
   }
-  
+
   .question-title {
     font-size: 20px; /* Decrease font size */
   }
@@ -384,6 +458,5 @@ nextQuestion() {
   color: red;
   font-size: 11px;
   margin-bottom: 30px;
-
 }
 </style>

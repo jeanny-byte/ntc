@@ -1,31 +1,15 @@
 <template>
-  <img src="../assets/ntclogo.png" />
+  <img class="ntclogo" src="../assets/ntclogo.png" />
   <div>
     <div v-if="!testStarted">
       <div class="quiz-rules">
         <p>Welcome to our quiz! Here's how it works:</p>
         <ul type="none">
           <li>
-            Start: To begin, enter your name and select a category of questions
-            you'd like to be tested on.<br>
-            Test: Once you start the test, you'll be presented with a series of
-            multiple-choice questions.<br>
             Answer: Choose the option you think is correct for each question. If
             you're unsure, take your best guess!<br>
-         
-            Feedback: If you select the correct answer, well done! If not, don't
-            worry. The correct answer will be revealed before moving to the next
-            question.<br>
-         
-            Scoring: Your score will be calculated based on the number of
-            correct answers.<br>
-         
             Passing Grade: To pass the quiz, you'll need to score 80% or higher.<br>
-      
-            Result: After answering all questions, you'll receive immediate<br>
-            feedback on whether you passed or need to try again.<br>
-            Good Luck!: Best of luck with the quiz. Have fun and test your
-            knowledge!
+  
           </li>
         </ul>
       </div>
@@ -179,6 +163,10 @@ nextQuestion() {
 
 <style scoped>
 /* Component-specific styles */
+.ntclogo{
+  height: 15%;
+  width: 15%;
+}
 .carousel-container {
   background-color: #f8f9fa;
   border-radius: 10px;
@@ -226,6 +214,20 @@ nextQuestion() {
   background-color: #0056b3;
 }
 
+@media (max-width: 768px) { /* Adjust styles for screens smaller than 768px */
+  .carousel-container {
+    padding: 10px; /* Reduce padding */
+  }
+  
+  .question-title {
+    font-size: 20px; /* Decrease font size */
+  }
+
+  .option-label {
+    font-size: 14px; /* Decrease font size */
+  }
+}
+
 .popup {
   background-color: #f8f9fa;
   border-radius: 10px;
@@ -267,5 +269,6 @@ nextQuestion() {
 .quiz-rules {
   color: red;
   font-size: 11px;
+
 }
 </style>

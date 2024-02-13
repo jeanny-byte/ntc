@@ -71,7 +71,7 @@
             }}</label>
           </li>
         </ul>
-        <button @click="nextQuestion" class="next-button">Next</button>
+        <button @click="nextQuestion(), saveUsername()" class="next-button">Next</button>
         <!--Hidden div-->
         <div v-if="showCorrectAnswer" class="correct-answer">
           Correct answer:
@@ -2306,6 +2306,27 @@ export default {
   },
 
   methods: {
+    saveUsername() {
+      // Send an HTTP request to your backend endpoint
+      fetch('/save-username', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ username: this.username })
+      })
+      .then(response => {
+        if (response.ok) {
+          console.log('Username saved successfully');
+        } else {
+          console.error('Failed to save username');
+        }
+      })
+      .catch(error => {
+        console.error('Error saving username:', error);
+      });
+    },
+
     incrementScore() {
       this.score++;
     },

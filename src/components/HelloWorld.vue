@@ -87,6 +87,7 @@
         <!-- Scoring and Feedback Popup -->
         <div class="popup">
           <img class="notify" :src="score >= passingScore ? '../assets/correct.png' : '../assets/cancel.png'" />
+          <h3>Your scored {{ score }} / {{ questionsToDisplay.length }}</h3>
     <h2 v-if="score >= passingScore">Congratulations, {{ userName }}!</h2>
     <h2 v-else>Sorry, {{ userName }}, you didn't pass.</h2>
           <button @click="resetTest">Close</button>
@@ -118,6 +119,11 @@
             <li>
               <a href="https://www.linkedin.com/in/jean-claude-amekudzi/">
                 <font-awesome-icon :icon="['fab', 'linkedin-in']" />
+              </a>
+            </li>
+            <li>
+              <a href="https://wa.me/+233530971956">
+                <font-awesome-icon :icon="['fab', 'whatsapp']" />
               </a>
             </li>
           </ul>

@@ -164,6 +164,7 @@ export default {
       categories: [
         { id: 1, name: "ESSENTIAL_PEDAGOGIES_AND_PROFESSIONAL_PRACTICE" },
         { id: 2, name: "PROFESSIONAL_ATTITUDES_VALUES_AND_ETHICS_IN_TEACHING" },
+        { id: 3, name: "USE_OF_ICTs_IN_EDUCATION" },
         // Add more categories here
       ],
       questions: {
@@ -973,6 +974,245 @@ export default {
             options: ["Option A", "Option B", "Option C"],
             correctAnswer: "Option B",
           },
+          {
+            text: "What is the focus of this unit?",
+            options: [
+              "Coding techniques",
+              "Teacher professionalism and ethics",
+              "Physics concepts",
+            ],
+            correctAnswer: "Teacher professionalism and ethics",
+          },
+          {
+            text: "What are the learning outcomes of this unit?",
+            options: [
+              "To understand calculus",
+              "To explain teacher professionalism",
+              "To learn about oceanography",
+            ],
+            correctAnswer: "To explain teacher professionalism",
+          },
+          {
+            text: "What is the duration of this unit?",
+            options: ["One hour", "Two credit hours", "Four hours"],
+            correctAnswer: "Two credit hours",
+          },
+          {
+            text: "What is the primary goal of Session One?",
+            options: [
+              "To discuss teaching methods",
+              "To introduce teacher professionalism",
+              "To teach mathematics",
+            ],
+            correctAnswer: "To introduce teacher professionalism",
+          },
+          {
+            text: "What are some qualities needed to be an effective teacher?",
+            options: [
+              "Laziness and disorganization",
+              "Adequate knowledge, skills, and professional practices",
+              "Indifference towards students",
+            ],
+            correctAnswer:
+              "Adequate knowledge, skills, and professional practices",
+          },
+          {
+            text: "What is the role of a teacher beyond teaching?",
+            options: [
+              "To do nothing else",
+              "To motivate learning through a friendly environment",
+              "To isolate from the school community",
+            ],
+            correctAnswer:
+              "To motivate learning through a friendly environment",
+          },
+          {
+            text: "Why is teaching classified as a profession?",
+            options: [
+              "Because it requires no formal training",
+              "Because it is not a career",
+              "Because it requires formal training over a long period and certification",
+            ],
+            correctAnswer:
+              "Because it requires formal training over a long period and certification",
+          },
+          {
+            text: "What regulates the teaching profession in Ghana?",
+            options: [
+              "The Ministry of Health",
+              "The National Teaching Council",
+              "The Department of Agriculture",
+            ],
+            correctAnswer: "The National Teaching Council",
+          },
+          {
+            text: "What does the National Teaching Council do?",
+            options: [
+              "Issues driver's licenses",
+              "Conducts teacher licensure examinations",
+              "Sells textbooks",
+            ],
+            correctAnswer: "Conducts teacher licensure examinations",
+          },
+          {
+            text: "What does a code of conduct entail?",
+            options: [
+              "A set of written guidelines detailing ethical norms and professional standards",
+              "A list of movies teachers should watch",
+              "A compilation of recipes",
+            ],
+            correctAnswer:
+              "A set of written guidelines detailing ethical norms and professional standards",
+          },
+          {
+            text: "What is the objective of the Code of Conduct for Staff of the Ghana Education Service?",
+            options: [
+              "To lower standards of competence",
+              "To achieve high standards of competence and good behavior",
+              "To encourage misconduct",
+            ],
+            correctAnswer:
+              "To achieve high standards of competence and good behavior",
+          },
+          {
+            text: "What are ethics in teaching?",
+            options: [
+              "Moral standards that don't influence behavior",
+              "Moral standards and practices that influence behavior",
+              "Moral standards irrelevant to teaching",
+            ],
+            correctAnswer:
+              "Moral standards and practices that influence behavior",
+          },
+          {
+            text: "What character traits should teachers model according to professional ethics?",
+            options: [
+              "Dishonesty and disrespect",
+              "Perseverance and honesty",
+              "Laziness and impatience",
+            ],
+            correctAnswer: "Perseverance and honesty",
+          },
+          {
+            text: "What is the importance of developing professional ethics for teachers?",
+            options: [
+              "To discourage professionalism",
+              "To foster unethical behavior",
+              "To demonstrate moral and ethical values",
+            ],
+            correctAnswer: "To demonstrate moral and ethical values",
+          },
+          {
+            text: "What are some tips to help develop professional ethics?",
+            options: [
+              "Engage in unethical practices",
+              "Attend workshops on dishonesty",
+              "Demonstrate moral and ethical values",
+            ],
+            correctAnswer: "Demonstrate moral and ethical values",
+          },
+          {
+            text: "What is the focus of Session Two?",
+            options: [
+              "Quantum physics",
+              "Codes of conduct in teaching",
+              "Historical events",
+            ],
+            correctAnswer: "Codes of conduct in teaching",
+          },
+          {
+            text: "What are the learning outcomes of Session Two?",
+            options: [
+              "To play sports",
+              "To discuss the history of art",
+              "To explain codes of conduct and ethics in teaching",
+            ],
+            correctAnswer: "To explain codes of conduct and ethics in teaching",
+          },
+          {
+            text: "What does a code of conduct detail?",
+            options: [
+              "Ethical norms and professional standards",
+              "Recipes for cooking",
+              "Fashion trends",
+            ],
+            correctAnswer: "Ethical norms and professional standards",
+          },
+          {
+            text: "Who regulates the teaching profession in Ghana?",
+            options: [
+              "The National Teaching Council",
+              "The Department of Transportation",
+              "The Ministry of Tourism",
+            ],
+            correctAnswer: "The National Teaching Council",
+          },
+          {
+            text: "What is the role of the National Teaching Council?",
+            options: [
+              "Conducts teacher licensure examinations",
+              "Sells groceries",
+              "Manages public transportation",
+            ],
+            correctAnswer: "Conducts teacher licensure examinations",
+          },
+          {
+            text: "What is the purpose of the Code of Conduct for Staff of the Ghana Education Service?",
+            options: [
+              "To lower standards of competence",
+              "To achieve high standards of competence and good behavior",
+              "To promote misconduct",
+            ],
+            correctAnswer:
+              "To achieve high standards of competence and good behavior",
+          },
+          {
+            text: "What are ethics in teaching?",
+            options: [
+              "Moral standards irrelevant to teaching",
+              "Moral standards that don't influence behavior",
+              "Moral standards and practices that influence behavior",
+            ],
+            correctAnswer:
+              "Moral standards and practices that influence behavior",
+          },
+          {
+            text: "What character traits should teachers model according to professional ethics?",
+            options: [
+              "Dishonesty and disrespect",
+              "Perseverance and honesty",
+              "Laziness and impatience",
+            ],
+            correctAnswer: "Perseverance and honesty",
+          },
+          {
+            text: "What is the importance of developing professional ethics for teachers?",
+            options: [
+              "To discourage professionalism",
+              "To foster unethical behavior",
+              "To demonstrate moral and ethical values",
+            ],
+            correctAnswer: "To demonstrate moral and ethical values",
+          },
+          {
+            text: "What are some tips to help develop professional ethics?",
+            options: [
+              "Engage in unethical practices",
+              "Attend workshops on dishonesty",
+              "Demonstrate moral and ethical values",
+            ],
+            correctAnswer: "Demonstrate moral and ethical values",
+          },
+
+          // Add more questions for Category 2 here
+        ],
+        USE_OF_ICTs_IN_EDUCATION: [
+          {
+            text: "Question 1 for Category 3?",
+            options: ["Option A", "Option B", "Option C"],
+            correctAnswer: "Option B",
+          },
+          
 
           // Add more questions for Category 2 here
         ],

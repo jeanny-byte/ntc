@@ -98,7 +98,6 @@
       <div class="footer-content">
         <div class="footer-logo">
           <!-- Your logo or company name here -->
-          <img src="/assets/logo.png" alt="Logo">
         </div>
         <!-- <div class="footer-links">
           <ul>
@@ -563,8 +562,9 @@ export default {
   text-decoration: none;
 }
 .footer {
-  background-color: #333;
-  color: #fff;
+  margin-top: 30px;
+  background-color: #e6ecef;
+  color: #929090;
   padding: 40px 0;
 }
 

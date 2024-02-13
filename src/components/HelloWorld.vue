@@ -82,6 +82,8 @@
       <div v-else>
         <!-- Scoring and Feedback Popup -->
         <div class="popup">
+          <img class="notify" v-if="score >= 17" src="../assets/cancel.png">
+          <img class="notify" v-else src="../assets/correct.png">
           <h2 v-if="score >= 17">Congratulations, {{ userName }}!</h2>
           <h2 v-else>Sorry, {{ userName }}, you didn't pass.</h2>
           <button @click="resetTest">Close</button>
@@ -2474,6 +2476,11 @@ export default {
 </script>
 
 <style scoped>
+.notify{
+  margin: 20px;
+  height: 100px;
+  width: 100px;
+}
 .container {
   position: relative;
 }
@@ -2685,8 +2692,8 @@ export default {
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: #08384f;
-  color: #0e113f;
+  background-color: #0056b3;
+  color: #fff;
   padding: 40px 0;
   display: flex;
   flex-direction: column;
@@ -2751,7 +2758,4 @@ export default {
   text-align: center; /* Align icons to the center */
 }
 
-.icon {
-  color: black;
-}
 </style>

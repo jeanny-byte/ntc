@@ -96,35 +96,23 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
-        <div class="footer-logo">
-          <!-- Your logo or company name here -->
-        </div>
-        <!-- <div class="footer-links">
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Portfolio</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </div> -->
         <div class="footer-social">
           <ul>
             <li>
-              <a href="https://web.facebook.com/jean.amekudzi.5"
-                ><i class="fab fa-facebook-f"></i
-              ></a>
+              <a href="https://web.facebook.com/jean.amekudzi.5">
+                <font-awesome-icon :icon="['fab', 'facebook-f']" />
+              </a>
             </li>
-            <!-- <li><a href="#"><i class="fab fa-twitter"></i></a></li> -->
+            <!-- <li><a href="#"><font-awesome-icon icon="fab fa-twitter"></font-awesome-icon></a></li> -->
             <li>
-              <a href="https://www.instagram.com/__.ccom"
-                ><i class="fab fa-instagram"></i
-              ></a>
+              <a href="https://www.instagram.com/__.ccom">
+                <font-awesome-icon :icon="['fab', 'instagram']" />
+              </a>
             </li>
             <li>
-              <a href="https://www.linkedin.com/in/jean-claude-amekudzi/"
-                ><i class="fab fa-linkedin-in"></i
-              ></a>
+              <a href="https://www.linkedin.com/in/jean-claude-amekudzi/">
+                <font-awesome-icon :icon="['fab', 'linkedin-in']" />
+              </a>
             </li>
           </ul>
         </div>
@@ -145,7 +133,19 @@
 </template>
 
 <script>
+// Import the necessary Font Awesome files
+
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+
+// Add Font Awesome icons to the library
+library.add(fab);
+
 export default {
+  components: {
+    FontAwesomeIcon,
+  },
   data() {
     return {
       aadsenseContent: "",
@@ -1212,7 +1212,458 @@ export default {
             options: ["Option A", "Option B", "Option C"],
             correctAnswer: "Option B",
           },
-          
+          {
+            text: "What is object-oriented programming (OOP)?",
+            options: [
+              "A programming paradigm based on objects",
+              "A programming language",
+              "A programming method",
+            ],
+            correctAnswer: "A programming paradigm based on objects",
+          },
+          {
+            text: "What is a class in OOP?",
+            options: [
+              "A function",
+              "A blueprint for creating objects",
+              "A data structure",
+            ],
+            correctAnswer: "A blueprint for creating objects",
+          },
+          {
+            text: "What is inheritance in OOP?",
+            options: [
+              "A way to create multiple instances of a class",
+              "The process of defining a new class based on an existing class",
+              "A way to restrict access to certain class members",
+            ],
+            correctAnswer:
+              "The process of defining a new class based on an existing class",
+          },
+          {
+            text: "What is polymorphism in OOP?",
+            options: [
+              "The ability of a function to take on different forms",
+              "The ability to inherit multiple classes",
+              "The process of creating multiple objects",
+            ],
+            correctAnswer:
+              "The ability of a function to take on different forms",
+          },
+          {
+            text: "What is encapsulation in OOP?",
+            options: [
+              "The process of combining data and functions into a single unit",
+              "The process of creating multiple instances of a class",
+              "The process of creating subclasses",
+            ],
+            correctAnswer:
+              "The process of combining data and functions into a single unit",
+          },
+          {
+            text: "What is a constructor in OOP?",
+            options: [
+              "A method that is called when an object is created",
+              "A method that is called when an object is destroyed",
+              "A method that is called when an object is modified",
+            ],
+            correctAnswer: "A method that is called when an object is created",
+          },
+          {
+            text: "What is a destructor in OOP?",
+            options: [
+              "A method that is called when an object is created",
+              "A method that is called when an object is destroyed",
+              "A method that is called when an object is modified",
+            ],
+            correctAnswer:
+              "A method that is called when an object is destroyed",
+          },
+          {
+            text: "What is method overloading in OOP?",
+            options: [
+              "The process of defining multiple methods with the same name but different parameters",
+              "The process of defining multiple methods with different names but the same parameters",
+              "The process of defining multiple methods with the same name and parameters",
+            ],
+            correctAnswer:
+              "The process of defining multiple methods with the same name but different parameters",
+          },
+          {
+            text: "What is method overriding in OOP?",
+            options: [
+              "The process of defining multiple methods with the same name but different parameters",
+              "The process of defining multiple methods with different names but the same parameters",
+              "The process of defining a method in a subclass that already exists in the superclass",
+            ],
+            correctAnswer:
+              "The process of defining a method in a subclass that already exists in the superclass",
+          },
+          {
+            text: "What is a static method in OOP?",
+            options: [
+              "A method that can be called without creating an instance of the class",
+              "A method that can only be called within the class",
+              "A method that is automatically called when an object is created",
+            ],
+            correctAnswer:
+              "A method that can be called without creating an instance of the class",
+          },
+          {
+            text: "What is a static variable in OOP?",
+            options: [
+              "A variable that can only be accessed within the class",
+              "A variable that is automatically initialized when an object is created",
+              "A variable that is shared among all instances of a class",
+            ],
+            correctAnswer:
+              "A variable that is shared among all instances of a class",
+          },
+          {
+            text: "What is a final variable in OOP?",
+            options: [
+              "A variable that cannot be changed after initialization",
+              "A variable that is automatically initialized when an object is created",
+              "A variable that is shared among all instances of a class",
+            ],
+            correctAnswer:
+              "A variable that cannot be changed after initialization",
+          },
+          {
+            text: "What is a final method in OOP?",
+            options: [
+              "A method that cannot be overridden in a subclass",
+              "A method that cannot be called without creating an instance of the class",
+              "A method that cannot be accessed outside of the class",
+            ],
+            correctAnswer: "A method that cannot be overridden in a subclass",
+          },
+          {
+            text: "What is a package in Java?",
+            options: [
+              "A collection of classes and interfaces",
+              "A single class",
+              "A single file",
+            ],
+            correctAnswer: "A collection of classes and interfaces",
+          },
+          {
+            text: "What is an interface in Java?",
+            options: [
+              "A class that cannot be instantiated",
+              "A class that cannot have methods",
+              "A blueprint of a class that defines a set of methods",
+            ],
+            correctAnswer:
+              "A blueprint of a class that defines a set of methods",
+          },
+          {
+            text: "What is a constructor chaining in Java?",
+            options: [
+              "Calling one constructor from another within the same class",
+              "Calling constructors from different classes",
+              "Creating multiple instances of a class",
+            ],
+            correctAnswer:
+              "Calling one constructor from another within the same class",
+          },
+          {
+            text: "What is method chaining in Java?",
+            options: [
+              "Calling multiple methods in sequence on the same object",
+              "Calling methods from different classes",
+              "Creating multiple instances of a class",
+            ],
+            correctAnswer:
+              "Calling multiple methods in sequence on the same object",
+          },
+          {
+            text: "What is the difference between an abstract class and an interface in Java?",
+            options: [
+              "An abstract class can have concrete methods, while an interface cannot",
+              "An interface can have fields, while an abstract class cannot",
+              "An abstract class can be instantiated, while an interface cannot",
+            ],
+            correctAnswer:
+              "An abstract class can have concrete methods, while an interface cannot",
+          },
+          {
+            text: "What is the purpose of the 'super' keyword in Java?",
+            options: [
+              "To call the constructor of the superclass",
+              "To call a static method of the superclass",
+              "To call a method of the subclass",
+            ],
+            correctAnswer: "To call the constructor of the superclass",
+          },
+          {
+            text: "What is method hiding in Java?",
+            options: [
+              "Hiding a method implementation in a superclass",
+              "Hiding a method implementation in a subclass",
+              "Hiding a method implementation in a static method",
+            ],
+            correctAnswer: "Hiding a method implementation in a subclass",
+          },
+          {
+            text: "What is method signature in Java?",
+            options: [
+              "The name and return type of a method",
+              "The parameters and return type of a method",
+              "The access modifiers and return type of a method",
+            ],
+            correctAnswer: "The name and return type of a method",
+          },
+          {
+            text: "What is method visibility in Java?",
+            options: [
+              "The ability to see the method within the same class",
+              "The ability to see the method within the same package",
+              "The ability to see the method from any class",
+            ],
+            correctAnswer: "The ability to see the method from any class",
+          },
+          {
+            text: "What is method abstraction in Java?",
+            options: [
+              "Hiding the implementation details of a method",
+              "Exposing the implementation details of a method",
+              "Removing a method from a class",
+            ],
+            correctAnswer: "Hiding the implementation details of a method",
+          },
+          {
+            text: "What is a lambda expression in Java?",
+            options: [
+              "A way to represent anonymous functions",
+              "A way to represent named functions",
+              "A way to represent global functions",
+            ],
+            correctAnswer: "A way to represent anonymous functions",
+          },
+          {
+            text: "What is the purpose of the 'this' keyword in Java?",
+            options: [
+              "To refer to the current object",
+              "To refer to the superclass",
+              "To refer to the subclass",
+            ],
+            correctAnswer: "To refer to the current object",
+          },
+          {
+            text: "What is a generic class in Java?",
+            options: [
+              "A class that can take any type as a parameter",
+              "A class that can only take primitive types as parameters",
+              "A class that cannot take any parameters",
+            ],
+            correctAnswer: "A class that can take any type as a parameter",
+          },
+          {
+            text: "What is method chaining in JavaScript?",
+            options: [
+              "Calling multiple methods in sequence on the same object",
+              "Calling methods from different objects",
+              "Creating multiple instances of an object",
+            ],
+            correctAnswer:
+              "Calling multiple methods in sequence on the same object",
+          },
+          {
+            text: "What is prototypal inheritance in JavaScript?",
+            options: [
+              "The ability of an object to inherit properties and methods from another object",
+              "The process of creating multiple instances of a class",
+              "The process of creating a new class based on an existing class",
+            ],
+            correctAnswer:
+              "The ability of an object to inherit properties and methods from another object",
+          },
+          {
+            text: "What is a closure in JavaScript?",
+            options: [
+              "A function that has access to its own scope, plus the scope of its parent function",
+              "A function that has access to the global scope",
+              "A function that has access to the scope of its child function",
+            ],
+            correctAnswer:
+              "A function that has access to its own scope, plus the scope of its parent function",
+          },
+          {
+            text: "What is the purpose of the 'new' keyword in JavaScript?",
+            options: [
+              "To create a new instance of an object",
+              "To call a constructor function",
+              "To create a new class",
+            ],
+            correctAnswer: "To create a new instance of an object",
+          },
+          {
+            text: "What is a callback function in JavaScript?",
+            options: [
+              "A function that is passed as an argument to another function",
+              "A function that calls another function",
+              "A function that is executed immediately",
+            ],
+            correctAnswer:
+              "A function that is passed as an argument to another function",
+          },
+          {
+            text: "What is event delegation in JavaScript?",
+            options: [
+              "Attaching event listeners to parent elements instead of individual child elements",
+              "Attaching event listeners to child elements instead of parent elements",
+              "Removing event listeners from elements",
+            ],
+            correctAnswer:
+              "Attaching event listeners to parent elements instead of individual child elements",
+          },
+          {
+            text: "What is a promise in JavaScript?",
+            options: [
+              "An object representing the eventual completion or failure of an asynchronous operation",
+              "A function that returns a value",
+              "An object representing a synchronous operation",
+            ],
+            correctAnswer:
+              "An object representing the eventual completion or failure of an asynchronous operation",
+          },
+          {
+            text: "What is asynchronous programming in JavaScript?",
+            options: [
+              "A programming paradigm that allows operations to be performed concurrently",
+              "A programming paradigm that allows operations to be performed sequentially",
+              "A programming paradigm that does not allow operations to be performed",
+            ],
+            correctAnswer:
+              "A programming paradigm that allows operations to be performed concurrently",
+          },
+          {
+            text: "What is the purpose of the 'await' keyword in JavaScript?",
+            options: [
+              "To wait for a promise to be resolved or rejected",
+              "To execute a function asynchronously",
+              "To handle errors in asynchronous code",
+            ],
+            correctAnswer: "To wait for a promise to be resolved or rejected",
+          },
+          {
+            text: "What is the purpose of the 'fetch' API in JavaScript?",
+            options: [
+              "To make HTTP requests",
+              "To create new objects",
+              "To manipulate the DOM",
+            ],
+            correctAnswer: "To make HTTP requests",
+          },
+          {
+            text: "What is a closure in Python?",
+            options: [
+              "A function that has access to its own scope, plus the scope of its parent function",
+              "A function that has access to the global scope",
+              "A function that has access to the scope of its child function",
+            ],
+            correctAnswer:
+              "A function that has access to its own scope, plus the scope of its parent function",
+          },
+          {
+            text: "What is the purpose of the 'yield' keyword in Python?",
+            options: [
+              "To return a value from a generator function",
+              "To call a function",
+              "To create a new class",
+            ],
+            correctAnswer: "To return a value from a generator function",
+          },
+          {
+            text: "What is a decorator in Python?",
+            options: [
+              "A function that modifies the behavior of another function",
+              "A function that returns another function",
+              "A function that returns an iterator",
+            ],
+            correctAnswer: "A function that returns an iterator",
+          },
+          {
+            text: "What is the purpose of the 'map' function in Python?",
+            options: [
+              "To apply a function to every item in an iterable",
+              "To create a new list",
+              "To concatenate multiple lists",
+            ],
+            correctAnswer: "To apply a function to every item in an iterable",
+          },
+          {
+            text: "What is the purpose of the 'filter' function in Python?",
+            options: [
+              "To filter elements from an iterable based on a function",
+              "To create a new list",
+              "To concatenate multiple lists",
+            ],
+            correctAnswer:
+              "To filter elements from an iterable based on a function",
+          },
+          {
+            text: "What is the purpose of the 'reduce' function in Python?",
+            options: [
+              "To apply a function to pairs of elements and reduce them to a single value",
+              "To create a new list",
+              "To concatenate multiple lists",
+            ],
+            correctAnswer:
+              "To apply a function to pairs of elements and reduce them to a single value",
+          },
+          {
+            text: "What is a set in Python?",
+            options: [
+              "An unordered collection of unique elements",
+              "An ordered collection of elements",
+              "A mutable collection of elements",
+            ],
+            correctAnswer: "An unordered collection of unique elements",
+          },
+          {
+            text: "What is a dictionary in Python?",
+            options: [
+              "A collection of key-value pairs",
+              "An ordered collection of elements",
+              "A mutable collection of elements",
+            ],
+            correctAnswer: "A collection of key-value pairs",
+          },
+          {
+            text: "What is the purpose of the 'zip' function in Python?",
+            options: [
+              "To combine multiple iterables into a single iterable",
+              "To create a new list",
+              "To concatenate multiple lists",
+            ],
+            correctAnswer:
+              "To combine multiple iterables into a single iterable",
+          },
+          {
+            text: "What is a module in Python?",
+            options: ["A file containing Python code", "A class", "A function"],
+            correctAnswer: "A file containing Python code",
+          },
+          {
+            text: "What is a package in Python?",
+            options: [
+              "A directory containing Python modules",
+              "A single Python file",
+              "A class",
+            ],
+            correctAnswer: "A directory containing Python modules",
+          },
+          {
+            text: "What is the purpose of the '__init__' method in Python classes?",
+            options: [
+              "To initialize an object's attributes",
+              "To define class methods",
+              "To create a new instance of a class",
+            ],
+            correctAnswer: "To initialize an object's attributes",
+          },
 
           // Add more questions for Category 2 here
         ],
@@ -1366,6 +1817,8 @@ export default {
 
         // Call function to check for consecutive correct answers
         this.checkConsecutiveCorrectAnswers();
+        //Clear Selected answer
+        this.selectedAnswer = null;
       }
     },
     resetTest() {
@@ -1635,7 +2088,7 @@ export default {
 }
 
 .footer-links ul li a {
-  color: #fff;
+  color: #bdd4fb;
   text-decoration: none;
 }
 
@@ -1654,5 +2107,12 @@ export default {
   color: #fff;
   font-size: 18px;
   text-decoration: none;
+}
+.footer-social {
+  text-align: center; /* Align icons to the center */
+}
+
+.icon {
+  color: black;
 }
 </style>

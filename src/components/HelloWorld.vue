@@ -2731,7 +2731,8 @@ export default {
   text-decoration: none;
 }
 .footer {
-  position: fixed;
+  position: inherit;
+  margin-top: 60px;
   width: 100%;
   background-color: #0056b3;
   color: #fff;
@@ -2778,6 +2779,9 @@ export default {
   color: #bdd4fb;
   text-decoration: none;
 }
+.footer-social {
+  text-align: center; /* Align icons to the center */
+}
 
 .footer-social ul {
   list-style: none;
@@ -2794,8 +2798,5 @@ export default {
   color: #fff;
   font-size: 18px;
   text-decoration: none;
-}
-.footer-social {
-  text-align: center; /* Align icons to the center */
 }
 </style>

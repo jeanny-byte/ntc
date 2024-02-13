@@ -2518,7 +2518,7 @@ export default {
 }
 
 .score-circle {
-  position: fixed;
+  position: relative;
   top: 20px;
   right: 20px;
   width: 50px;
@@ -2725,8 +2725,7 @@ export default {
   text-decoration: none;
 }
 .footer {
-  position: fixed;
-  bottom: 0;
+  position: relative;
   width: 100%;
   background-color: #0056b3;
   color: #fff;

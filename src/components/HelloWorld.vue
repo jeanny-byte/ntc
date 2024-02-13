@@ -93,11 +93,37 @@
 
   <!-- Thumbs-down icon -->
   <div v-if="showThumbsDown" class="thumbs-down">👎</div>
-
-  <div class="footer-bottom">
-          <p>&copy; 2024 Maktechit. All rights reserved.</p>
-          <p>Designed by <a href="#" target="_blank">Jean-Claude (.Com)</a></p>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <!-- Your logo or company name here -->
+          <img src="/assets/logo.png" alt="Logo">
         </div>
+        <!-- <div class="footer-links">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div> -->
+        <div class="footer-social">
+          <ul>
+            <li><a href="https://web.facebook.com/jean.amekudzi.5"><i class="fab fa-facebook-f"></i></a></li>
+            <!-- <li><a href="#"><i class="fab fa-twitter"></i></a></li> -->
+            <li><a href="https://www.instagram.com/__.ccom"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/jean-claude-amekudzi/"><i class="fab fa-linkedin-in"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Your Company. All rights reserved.</p>
+        <p>Designed by <a href="https://www.linkedin.com/in/jean-claude-amekudzi/" target="_blank">Jean-Claude (.com)</a></p>
+      </div>
+    </div>
+  </footer>
 </template>
 
 <script>
@@ -536,4 +562,59 @@ export default {
   color: rgb(72, 60, 60);
   text-decoration: none;
 }
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 40px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-logo img {
+  width: 150px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links ul li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.footer-links ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-social ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-social ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.footer-social ul li a {
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+}
+
 </style>

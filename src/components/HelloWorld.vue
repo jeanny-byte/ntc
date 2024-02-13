@@ -17,6 +17,7 @@
         </p>
         <ul type="none">
           <li>
+            All questions are generated from the 2023/24 Training Manual For Non Professional Teachers<br/>
             Answer: Choose the option you think is correct for each question. If
             you're unsure, take your best guess!<br />
             Passing Grade: To pass the quiz, you'll need to score 80% or
@@ -94,42 +95,43 @@
   <!-- Thumbs-down icon -->
   <div v-if="showThumbsDown" class="thumbs-down">👎</div>
   <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-social">
-          <ul>
-            <li>
-              <a href="https://web.facebook.com/jean.amekudzi.5">
-                <font-awesome-icon :icon="['fab', 'facebook-f']" />
-              </a>
-            </li>
-            <!-- <li><a href="#"><font-awesome-icon icon="fab fa-twitter"></font-awesome-icon></a></li> -->
-            <li>
-              <a href="https://www.instagram.com/__.ccom">
-                <font-awesome-icon :icon="['fab', 'instagram']" />
-              </a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/in/jean-claude-amekudzi/">
-                <font-awesome-icon :icon="['fab', 'linkedin-in']" />
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2024 Your Company. All rights reserved.</p>
-        <p>
-          Designed by
-          <a
-            href="https://www.linkedin.com/in/jean-claude-amekudzi/"
-            target="_blank"
-            >Jean-Claude (.com)</a
-          >
-        </p>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-social">
+        <ul>
+          <li>
+            <a href="https://web.facebook.com/jean.amekudzi.5">
+              <font-awesome-icon :icon="['fab', 'facebook-f']" />
+            </a>
+          </li>
+          <!-- <li><a href="#"><font-awesome-icon icon="fab fa-twitter"></font-awesome-icon></a></li> -->
+          <li>
+            <a href="https://www.instagram.com/__.ccom">
+              <font-awesome-icon :icon="['fab', 'instagram']" />
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/jean-claude-amekudzi/">
+              <font-awesome-icon :icon="['fab', 'linkedin-in']" />
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
-  </footer>
+    <div class="footer-bottom">
+      <p>&copy; 2024 <a href="https://mak-techit.com/" target="_blank">Maktechit</a>. All rights reserved.</p>
+      <p>
+        Designed by
+        <a
+          href="https://www.linkedin.com/in/jean-claude-amekudzi/"
+          target="_blank"
+          >Jean-Claude (.com)</a
+        >
+      </p>
+    </div>
+  </div>
+</footer>
+
 </template>
 
 <script>
@@ -2680,10 +2682,15 @@ export default {
   text-decoration: none;
 }
 .footer {
-  margin-top: 30px;
-  background-color: #e6ecef;
-  color: #929090;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #08384f;
+  color: #0e113f;
   padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .container {
@@ -2711,6 +2718,12 @@ export default {
 .footer-links ul li {
   display: inline-block;
   margin-right: 20px;
+}
+.footer .container {
+  width: 100%;
+}
+.footer-content {
+  margin-bottom: 20px; /* Adjust as needed */
 }
 
 .footer-links ul li a {

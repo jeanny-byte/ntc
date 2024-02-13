@@ -2725,7 +2725,7 @@ export default {
   text-decoration: none;
 }
 .footer {
-  position: relative;
+  position: fixed;
   width: 100%;
   background-color: #0056b3;
   color: #fff;

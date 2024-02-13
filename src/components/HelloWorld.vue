@@ -2586,6 +2586,10 @@ export default {
     opacity: 0;
   }
 }
+.thumbs-up, .thumbs-down {
+  position: absolute; /* Ensure that the elements are positioned relative to their containing block */
+  z-index: 1; /* Set the z-index value */
+}
 
 .thumbs-down {
   position: fixed;

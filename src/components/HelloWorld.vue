@@ -165,6 +165,8 @@ export default {
         { id: 1, name: "ESSENTIAL_PEDAGOGIES_AND_PROFESSIONAL_PRACTICE" },
         { id: 2, name: "PROFESSIONAL_ATTITUDES_VALUES_AND_ETHICS_IN_TEACHING" },
         { id: 3, name: "USE_OF_ICTs_IN_EDUCATION" },
+        { id: 4, name: "ASSESMENT_PRACTICES_IN_SCHOOLS" },
+        { id: 5, name: "CLINICAL_TEACHING" },
         // Add more categories here
       ],
       questions: {
@@ -970,11 +972,6 @@ export default {
         ],
         PROFESSIONAL_ATTITUDES_VALUES_AND_ETHICS_IN_TEACHING: [
           {
-            text: "Question 1 for Category 2?",
-            options: ["Option A", "Option B", "Option C"],
-            correctAnswer: "Option B",
-          },
-          {
             text: "What is the focus of this unit?",
             options: [
               "Coding techniques",
@@ -1207,11 +1204,6 @@ export default {
           // Add more questions for Category 2 here
         ],
         USE_OF_ICTs_IN_EDUCATION: [
-          {
-            text: "Question 1 for Category 3?",
-            options: ["Option A", "Option B", "Option C"],
-            correctAnswer: "Option B",
-          },
           {
             text: "What is object-oriented programming (OOP)?",
             options: [
@@ -1666,6 +1658,640 @@ export default {
           },
 
           // Add more questions for Category 2 here
+        ],
+        ASSESMENT_PRACTICES_IN_SCHOOLS: [
+          {
+            text: "What is assessment in the context of schools?",
+            options: [
+              "A process of obtaining information for decision-making in education",
+              "A method of ranking students based on their performance",
+              "A way to punish students for poor performance",
+            ],
+            correctAnswer:
+              "A process of obtaining information for decision-making in education",
+          },
+          {
+            text: "What are the four main sessions organized in the unit?",
+            options: [
+              "Nature, Principles, and Qualities of Assessments; Purpose of Assessment; Forms of assessments in schools; Test design, Administering, Scoring, and Giving Feedback",
+              "Reading, Writing, Arithmetic, and Science",
+              "Planning, Implementation, Evaluation, and Review",
+            ],
+            correctAnswer:
+              "Nature, Principles, and Qualities of Assessments; Purpose of Assessment; Forms of assessments in schools; Test design, Administering, Scoring, and Giving Feedback",
+          },
+          {
+            text: "What is the primary purpose of assessment according to the content?",
+            options: [
+              "To rank students based on their performance",
+              "To support learner learning and attainment",
+              "To punish students for low achievement rates",
+            ],
+            correctAnswer: "To support learner learning and attainment",
+          },
+          {
+            text: "What is the importance of the 'Nature, Principles, and Qualities of Assessments' session?",
+            options: [
+              "To explain the basics of assessment to students",
+              "To provide guidelines for designing assessment tools",
+              "To discuss advanced assessment techniques",
+            ],
+            correctAnswer:
+              "To provide guidelines for designing assessment tools",
+          },
+          {
+            text: "What is the process involved in the 'Classroom Assessment Process'?",
+            options: [
+              "Plan, Collect data, Analyze the results, Provide feedback",
+              "Read, Write, Calculate, Report",
+              "Ask, Listen, Understand, Act",
+            ],
+            correctAnswer:
+              "Plan, Collect data, Analyze the results, Provide feedback",
+          },
+          {
+            text: "Who are involved in the assessment process according to the content?",
+            options: [
+              "Only teachers",
+              "Learners, teachers, school, parents, and curriculum managers",
+              "Only learners",
+            ],
+            correctAnswer:
+              "Learners, teachers, school, parents, and curriculum managers",
+          },
+          {
+            text: "What is the relationship among Measurement, Assessment, and Evaluation?",
+            options: [
+              "They are synonyms and can be used interchangeably",
+              "They are completely unrelated concepts",
+              "Measurement provides data, Assessment collects data, and Evaluation interprets data",
+            ],
+            correctAnswer:
+              "Measurement provides data, Assessment collects data, and Evaluation interprets data",
+          },
+          {
+            text: "What is the purpose of the 'Principles of Assessment'?",
+            options: [
+              "To make assessments difficult for learners",
+              "To ensure assessments are useful, appropriate, effective, and credible",
+              "To exclude certain students from assessments",
+            ],
+            correctAnswer:
+              "To ensure assessments are useful, appropriate, effective, and credible",
+          },
+          {
+            text: "What are some qualities of Assessment Results?",
+            options: [
+              "Unreliability, Invalidity, and Unfairness",
+              "Reliability, Validity, and Fairness",
+              "Complexity, Ambiguity, and Biases",
+            ],
+            correctAnswer: "Reliability, Validity, and Fairness",
+          },
+          {
+            text: "How can teachers establish test quality in teaching and learning?",
+            options: [
+              "By making tests extremely difficult",
+              "By assigning random scores to students",
+              "By encouraging learners to perform their best and providing clear scoring criteria",
+              "By withholding feedback from learners",
+            ],
+            correctAnswer:
+              "By encouraging learners to perform their best and providing clear scoring criteria",
+          },
+          {
+            text: "What are some characteristics of Formative Assessment?",
+            options: [
+              "It is administered at the end of teaching a unit",
+              "It provides data on learner progress and understanding during ongoing learning",
+              "It is primarily used for grading purposes",
+            ],
+            correctAnswer:
+              "It provides data on learner progress and understanding during ongoing learning",
+          },
+          {
+            text: "What is the importance of Summative Assessment?",
+            options: [
+              "To monitor learner progress and understanding during ongoing learning",
+              "To provide learners with immediate feedback",
+              "To determine what learners know at a particular point in time",
+            ],
+            correctAnswer:
+              "To determine what learners know at a particular point in time",
+          },
+          {
+            text: "What does Differentiated Assessment involve?",
+            options: [
+              "Treating all learners the same way",
+              "Considering different learning needs, interests, and abilities",
+              "Administering only one type of assessment",
+            ],
+            correctAnswer:
+              "Considering different learning needs, interests, and abilities",
+          },
+          {
+            text: "What is the role of teachers who practice differentiation in the classroom?",
+            options: [
+              "To treat all learners the same way",
+              "To use only one type of assessment",
+              "To continually assess and adjust lesson content to meet learners' needs",
+            ],
+            correctAnswer:
+              "To continually assess and adjust lesson content to meet learners' needs",
+          },
+          {
+            text: "What are some general tips to test construction?",
+            options: [
+              "Start with learning outcomes, avoid wordy questions, and design tests to be extremely difficult",
+              "Encourage guessing, make questions complex, and provide vague instructions",
+              "Write test keys after learners take the exam",
+            ],
+            correctAnswer:
+              "Start with learning outcomes, avoid wordy questions, and design tests to be extremely difficult",
+          },
+          {
+            text: "What should all test items/questions do?",
+            options: [
+              "Assess the achievement of learning outcomes for the unit/course, align with teaching and learning activities, and vary in levels of difficulty",
+              "Be irrelevant to learning outcomes, focus only on memorization, and have the same level of difficulty",
+              "Be extremely difficult, confuse learners, and have unclear instructions",
+            ],
+            correctAnswer:
+              "Assess the achievement of learning outcomes for the unit/course, align with teaching and learning activities, and vary in levels of difficulty",
+          },
+          {
+            text: "What are the two general categories for test items according to Bloom's Taxonomy?",
+            options: [
+              "Category A and Category B",
+              "Objective type test and Subjective type test",
+              "Assessment type A and Assessment type B",
+            ],
+            correctAnswer: "Objective type test and Subjective type test",
+          },
+          {
+            text: "Which type of test items are easier to create for lower-order Bloom’s levels?",
+            options: [
+              "Subjective test items",
+              "Objective test items",
+              "Performance test items",
+            ],
+            correctAnswer: "Objective test items",
+          },
+          {
+            text: "Which of the following is an example of a subjective test item?",
+            options: ["Multiple choice", "True-false", "Short answer essay"],
+            correctAnswer: "Short answer essay",
+          },
+          {
+            text: "When are objective test items best used?",
+            options: [
+              "When the group to be tested is small",
+              "When highly reliable scores on a broad range of learning goals must be obtained",
+              "When the development of learners' writing skills is a learning outcome",
+            ],
+            correctAnswer:
+              "When highly reliable scores on a broad range of learning goals must be obtained",
+          },
+          {
+            text: "What are test administration principles?",
+            options: [
+              "Guidelines for scoring tests",
+              "Procedures for developing tests",
+              "Guidelines for distributing and administering standardized assessments",
+            ],
+            correctAnswer:
+              "Guidelines for distributing and administering standardized assessments",
+          },
+          {
+            text: "What should be provided to ensure a conducive physical environment before assessment?",
+            options: [
+              "Proper system of light, temperature, air, and water",
+              "Rotation of distributions",
+              "Collecting and accounting for all test materials",
+            ],
+            correctAnswer:
+              "Proper system of light, temperature, air, and water",
+          },
+          {
+            text: "What is the purpose of a scoring guide for assessment?",
+            options: [
+              "To interpret and grade learners' assessment against criteria and standards",
+              "To administer the assessment",
+              "To develop assessment rubrics",
+            ],
+            correctAnswer:
+              "To interpret and grade learners' assessment against criteria and standards",
+          },
+          {
+            text: "According to the content, what are some benefits of assessment rubrics?",
+            options: [
+              "Providing feedback to learners",
+              "Enhancing test security",
+              "Illuminating gaps in learners' understanding against criteria",
+            ],
+            correctAnswer:
+              "Illuminating gaps in learners' understanding against criteria",
+          },
+          {
+            text: "What is the purpose of feedback in the assessment and learning process?",
+            options: [
+              "To discourage learner effort and achievement",
+              "To improve a learner's performance",
+              "To minimize distractions during assessment",
+            ],
+            correctAnswer: "To improve a learner's performance",
+          },
+          {
+            text: "When should feedback be given according to the content?",
+            options: [
+              "Before the assessment",
+              "After the assessment",
+              "In a timely manner after showing proof of learning",
+            ],
+            correctAnswer: "In a timely manner after showing proof of learning",
+          },
+          {
+            text: "What are the characteristics of effective feedback?",
+            options: [
+              "Positive and neutral",
+              "Given in a timely manner",
+              "Given before the assessment",
+            ],
+            correctAnswer: "Given in a timely manner",
+          },
+          {
+            text: "What should effective feedback focus on?",
+            options: [
+              "Encouraging learner effort",
+              "What the learner is doing right and wrong",
+              "Minimizing distractions",
+            ],
+            correctAnswer: "What the learner is doing right and wrong",
+          },
+          {
+            text: "How can effective feedback be educative?",
+            options: [
+              "By providing compliments only",
+              "By providing explanations of correct and incorrect actions",
+              "By minimizing distractions",
+            ],
+            correctAnswer:
+              "By providing explanations of correct and incorrect actions",
+          },
+          {
+            text: "What is the impact of negative feedback on learners?",
+            options: [
+              "It encourages learner effort",
+              "It discourages learner effort and achievement",
+              "It improves learner performance",
+            ],
+            correctAnswer: "It discourages learner effort and achievement",
+          },
+          {
+            text: "What should feedback be sensitive to?",
+            options: [
+              "The time of day",
+              "The individual needs of the learner",
+              "The type of assessment",
+            ],
+            correctAnswer: "The individual needs of the learner",
+          },
+          {
+            text: "What questions should feedback aim to answer?",
+            options: [
+              "Who, what, where, when",
+              "What can the learner do, what can't the learner do, how does the learner's work compare with others, how can the learner do better",
+              "Why, how, when, where",
+            ],
+            correctAnswer:
+              "What can the learner do, what can't the learner do, how does the learner's work compare with others, how can the learner do better",
+          },
+          {
+            text: "According to Hattie & Timperley, what is feedback?",
+            options: [
+              "Any response regarding a learner's performance or behavior",
+              "Only verbal responses regarding a learner's performance",
+              "Only written responses regarding a learner's performance",
+            ],
+            correctAnswer:
+              "Any response regarding a learner's performance or behavior",
+          },
+          {
+            text: "What is the key idea regarding designing tests?",
+            options: [
+              "Planning and administering",
+              "Scoring and reporting",
+              "Planning, preparing, administering, scoring, statistically analyzing, and reporting results",
+            ],
+            correctAnswer:
+              "Planning, preparing, administering, scoring, statistically analyzing, and reporting results",
+          },
+          {
+            text: "What should be the condition when scoring an essay test?",
+            options: [
+              "Mentally tired and in a distracting environment",
+              "Physically sound, mentally alert, and in an environment with very little or no distraction",
+              "Physically tired and in a noisy environment",
+            ],
+            correctAnswer:
+              "Physically sound, mentally alert, and in an environment with very little or no distraction",
+          },
+          {
+            text: "How does feedback impact learner confidence and motivation?",
+            options: [
+              "It has no impact on learner confidence and motivation",
+              "It discourages learner confidence and motivation",
+              "It improves learner confidence, motivation, and ultimately, a learner's attainment",
+            ],
+            correctAnswer:
+              "It improves learner confidence, motivation, and ultimately, a learner's attainment",
+          },
+        ],
+        CLINICAL_TEACHING: [
+          {
+            text: "What is the purpose of clinical teaching sessions?",
+            options: [
+              "To focus on developing teaching competencies",
+              "To grade students",
+              "To conduct research",
+            ],
+            correctAnswer: "To focus on developing teaching competencies",
+          },
+          {
+            text: "What is the expected outcome of participating in clinical teaching?",
+            options: [
+              "To memorize theories",
+              "To build confidence in teaching",
+              "To socialize with peers",
+            ],
+            correctAnswer: "To build confidence in teaching",
+          },
+          {
+            text: "What should teachers do during the 'Before' phase of teaching?",
+            options: [
+              "Engage in post-lesson reflection",
+              "Monitor teaching-learning process",
+              "Answer guiding questions",
+            ],
+            correctAnswer: "Answer guiding questions",
+          },
+          {
+            text: "What type of assessment is used for clinical teaching?",
+            options: [
+              "Formative assessment only",
+              "Summative assessment only",
+              "Both formative and summative assessment",
+            ],
+            correctAnswer: "Both formative and summative assessment",
+          },
+          {
+            text: "What is the importance of planning before teaching?",
+            options: [
+              "It helps ensure sequential development of lessons",
+              "It is unnecessary",
+              "It's a waste of time",
+            ],
+            correctAnswer: "It helps ensure sequential development of lessons",
+          },
+          {
+            text: "What materials are needed for clinical teaching?",
+            options: [
+              "Tablet and smartphone",
+              "Bound notebook and relevant resources",
+              "Whiteboard and markers",
+            ],
+            correctAnswer: "Bound notebook and relevant resources",
+          },
+          {
+            text: "What is the purpose of a reflective journal?",
+            options: [
+              "To document learning and teaching experiences",
+              "To record personal thoughts",
+              "To write lesson plans",
+            ],
+            correctAnswer: "To document learning and teaching experiences",
+          },
+          {
+            text: "Why is reflection important in teaching?",
+            options: [
+              "It is not important",
+              "To improve teaching practices",
+              "To waste time",
+            ],
+            correctAnswer: "To improve teaching practices",
+          },
+          {
+            text: "What should a teacher do differently if a lesson is unsuccessful?",
+            options: [
+              "Ignore feedback and continue teaching",
+              "Make changes to teaching approach",
+              "Stop teaching altogether",
+            ],
+            correctAnswer: "Make changes to teaching approach",
+          },
+          {
+            text: "What type of feedback do teachers receive after clinical teaching?",
+            options: [
+              "No feedback",
+              "Feedback from peers and tutors",
+              "Feedback from students only",
+            ],
+            correctAnswer: "Feedback from peers and tutors",
+          },
+          {
+            text: "What are the learning outcomes of clinical teaching?",
+            options: [
+              "To forget theories",
+              "To build confidence",
+              "To avoid teaching",
+            ],
+            correctAnswer: "To build confidence",
+          },
+          {
+            text: "What should a teacher do during the 'During' phase of teaching?",
+            options: [
+              "Plan lessons",
+              "Monitor learners' engagement",
+              "Reflect on teaching",
+            ],
+            correctAnswer: "Monitor learners' engagement",
+          },
+          {
+            text: "What does assessment involve in clinical teaching?",
+            options: [
+              "Assessment before teaching",
+              "Assessment after teaching",
+              "Assessment during and after teaching",
+            ],
+            correctAnswer: "Assessment during and after teaching",
+          },
+          {
+            text: "What is the importance of feedback in teaching?",
+            options: [
+              "It is unnecessary",
+              "To discourage learners",
+              "To improve learner performance",
+            ],
+            correctAnswer: "To improve learner performance",
+          },
+          {
+            text: "What are the prerequisites for clinical teaching?",
+            options: [
+              "Watching YouTube videos",
+              "Completion of essential pedagogies unit",
+              "Sleeping in class",
+            ],
+            correctAnswer: "Completion of essential pedagogies unit",
+          },
+          {
+            text: "What should a teacher reflect on after a lesson?",
+            options: [
+              "What to cook for dinner",
+              "Teaching strategies",
+              "How to skip class",
+            ],
+            correctAnswer: "Teaching strategies",
+          },
+          {
+            text: "Why is it important for teachers to engage in post-lesson reflection?",
+            options: [
+              "It's not important",
+              "To understand lesson success",
+              "To forget about teaching",
+            ],
+            correctAnswer: "To understand lesson success",
+          },
+          {
+            text: "What is the role of a reflective journal in teaching?",
+            options: [
+              "To document learning experiences",
+              "To draw cartoons",
+              "To write a novel",
+            ],
+            correctAnswer: "To document learning experiences",
+          },
+          {
+            text: "What should teachers consider during lesson planning?",
+            options: [
+              "What to wear",
+              "Learning outcomes",
+              "Where to go on vacation",
+            ],
+            correctAnswer: "Learning outcomes",
+          },
+          {
+            text: "What is the primary aim of clinical teaching?",
+            options: [
+              "To confuse students",
+              "To develop teaching skills",
+              "To watch movies",
+            ],
+            correctAnswer: "To develop teaching skills",
+          },
+          {
+            text: "What is the benefit of receiving feedback from peers and tutors?",
+            options: [
+              "To feel bad about teaching",
+              "To improve teaching practice",
+              "To ignore teaching",
+            ],
+            correctAnswer: "To improve teaching practice",
+          },
+          {
+            text: "Why is it important for teachers to understand what worked well and what didn't?",
+            options: [
+              "To repeat mistakes",
+              "To improve teaching",
+              "To quit teaching",
+            ],
+            correctAnswer: "To improve teaching",
+          },
+          {
+            text: "What is the purpose of assessment in clinical teaching?",
+            options: [
+              "To confuse students",
+              "To evaluate teaching effectiveness",
+              "To sleep in class",
+            ],
+            correctAnswer: "To evaluate teaching effectiveness",
+          },
+          {
+            text: "What should teachers do if a lesson plan is not effective?",
+            options: [
+              "Repeat the same plan",
+              "Seek feedback and make changes",
+              "Quit teaching",
+            ],
+            correctAnswer: "Seek feedback and make changes",
+          },
+          {
+            text: "What is the role of teaching-learning materials?",
+            options: [
+              "To decorate the classroom",
+              "To enhance learning",
+              "To hide from students",
+            ],
+            correctAnswer: "To enhance learning",
+          },
+          {
+            text: "What type of feedback should teachers provide learners?",
+            options: [
+              "Negative feedback only",
+              "Positive feedback only",
+              "Constructive feedback",
+            ],
+            correctAnswer: "Constructive feedback",
+          },
+          {
+            text: "What should teachers do if learners are disengaged during a lesson?",
+            options: [
+              "Ignore them",
+              "Try to re-engage them",
+              "Join them in disengagement",
+            ],
+            correctAnswer: "Try to re-engage them",
+          },
+          {
+            text: "How does lesson planning contribute to successful teaching?",
+            options: [
+              "It doesn't contribute",
+              "It ensures effective delivery",
+              "It complicates teaching",
+            ],
+            correctAnswer: "It ensures effective delivery",
+          },
+          {
+            text: "What should teachers consider when managing learner diversity?",
+            options: [
+              "Ignore diversity",
+              "Treat all learners the same",
+              "Address individual needs",
+            ],
+            correctAnswer: "Address individual needs",
+          },
+          {
+            text: "Why is it important for teachers to monitor the teaching-learning process?",
+            options: [
+              "To take a break",
+              "To identify what works",
+              "To ignore teaching",
+            ],
+            correctAnswer: "To identify what works",
+          },
+          {
+            text: "What should teachers do if learners do not understand a task?",
+            options: ["Ignore them", "Rephrase the task", "Laugh at them"],
+            correctAnswer: "Rephrase the task",
+          },
+          {
+            text: "What should teachers do after teaching a lesson?",
+            options: [
+              "Go home and sleep",
+              "Engage in post-lesson reflection",
+              "Avoid reflection",
+            ],
+            correctAnswer: "Engage in post-lesson reflection",
+          },
         ],
       },
       questionsToDisplay: [], // Initialize questionsToDisplay as an empty array

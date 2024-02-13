@@ -45,9 +45,11 @@
     <div v-else>
       <!-- Question Carousel -->
       <div
+      
         v-if="currentIndex < questionsToDisplay.length"
         class="carousel-container"
       >
+      <p>{{ currentIndex + 1 }} / {{ questionsToDisplay.length }}</p>
         <h2 class="question-title">
           {{ currentIndex + 1 }}. {{ questionsToDisplay[currentIndex].text }}
         </h2>
@@ -2685,7 +2687,7 @@ export default {
 }
 
 .footer-bottom a {
-  color: rgb(72, 60, 60);
+  color: rgb(184, 227, 248);
   text-decoration: none;
 }
 .footer {

@@ -17,7 +17,8 @@
         </p>
         <ul type="none">
           <li>
-            All questions are generated from the 2023/24 Training Manual For Non Professional Teachers<br/>
+            All questions are generated from the 2023/24 Training Manual For Non
+            Professional Teachers<br />
             Answer: Choose the option you think is correct for each question. If
             you're unsure, take your best guess!<br />
             Passing Grade: To pass the quiz, you'll need to score 80% or
@@ -45,11 +46,10 @@
     <div v-else>
       <!-- Question Carousel -->
       <div
-      
         v-if="currentIndex < questionsToDisplay.length"
         class="carousel-container"
       >
-      <p>{{ currentIndex + 1 }} / {{ questionsToDisplay.length }}</p>
+        <p>{{ currentIndex + 1 }} / {{ questionsToDisplay.length }}</p>
         <h2 class="question-title">
           {{ currentIndex + 1 }}. {{ questionsToDisplay[currentIndex].text }}
         </h2>
@@ -71,7 +71,9 @@
             }}</label>
           </li>
         </ul>
-        <button @click="nextQuestion(), saveUsername()" class="next-button">Next</button>
+        <button @click="nextQuestion(), saveUsername()" class="next-button">
+          Next
+        </button>
         <!--Hidden div-->
         <div v-if="showCorrectAnswer" class="correct-answer">
           Correct answer:
@@ -84,10 +86,9 @@
       <div v-else>
         <!-- Scoring and Feedback Popup -->
         <div class="popup">
-          <img class="notify" v-if="score >= 17" src="../assets/cancel.png">
-          <img class="notify" v-else src="../assets/correct.png">
-          <h2 v-if="score >= 17">Congratulations, {{ userName }}!</h2>
-          <h2 v-else>Sorry, {{ userName }}, you didn't pass.</h2>
+          <img class="notify" :src="score >= passingScore ? '../assets/correct.png' : '../assets/cancel.png'" />
+    <h2 v-if="score >= passingScore">Congratulations, {{ userName }}!</h2>
+    <h2 v-else>Sorry, {{ userName }}, you didn't pass.</h2>
           <button @click="resetTest">Close</button>
         </div>
       </div>
@@ -99,43 +100,46 @@
   <!-- Thumbs-down icon -->
   <div v-if="showThumbsDown" class="thumbs-down">👎</div>
   <footer class="footer">
-  <div class="container">
-    <div class="footer-content">
-      <div class="footer-social">
-        <ul>
-          <li>
-            <a href="https://web.facebook.com/jean.amekudzi.5">
-              <font-awesome-icon :icon="['fab', 'facebook-f']" />
-            </a>
-          </li>
-          <!-- <li><a href="#"><font-awesome-icon icon="fab fa-twitter"></font-awesome-icon></a></li> -->
-          <li>
-            <a href="https://www.instagram.com/__.ccom">
-              <font-awesome-icon :icon="['fab', 'instagram']" />
-            </a>
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/jean-claude-amekudzi/">
-              <font-awesome-icon :icon="['fab', 'linkedin-in']" />
-            </a>
-          </li>
-        </ul>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-social">
+          <ul>
+            <li>
+              <a href="https://web.facebook.com/jean.amekudzi.5">
+                <font-awesome-icon :icon="['fab', 'facebook-f']" />
+              </a>
+            </li>
+            <!-- <li><a href="#"><font-awesome-icon icon="fab fa-twitter"></font-awesome-icon></a></li> -->
+            <li>
+              <a href="https://www.instagram.com/__.ccom">
+                <font-awesome-icon :icon="['fab', 'instagram']" />
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/jean-claude-amekudzi/">
+                <font-awesome-icon :icon="['fab', 'linkedin-in']" />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2024
+          <a href="https://mak-techit.com/" target="_blank">Maktechit</a>. All
+          rights reserved.
+        </p>
+        <p>
+          Designed by
+          <a
+            href="https://www.linkedin.com/in/jean-claude-amekudzi/"
+            target="_blank"
+            >Jean-Claude (.com)</a
+          >
+        </p>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; 2024 <a href="https://mak-techit.com/" target="_blank">Maktechit</a>. All rights reserved.</p>
-      <p>
-        Designed by
-        <a
-          href="https://www.linkedin.com/in/jean-claude-amekudzi/"
-          target="_blank"
-          >Jean-Claude (.com)</a
-        >
-      </p>
-    </div>
-  </div>
-</footer>
-
+  </footer>
 </template>
 
 <script>
@@ -154,6 +158,8 @@ export default {
   },
   data() {
     return {
+      passingScorePercentage: 0.8, // 80%
+      totalQuestions: '',
       aadsenseContent: "",
       consecutiveCorrectAnswers: 0, // Track consecutive correct answers
       consecutiveIncorrectAnswers: 0, // Track consecutive incorrect answers
@@ -2308,23 +2314,23 @@ export default {
   methods: {
     saveUsername() {
       // Send an HTTP request to your backend endpoint
-      fetch('/save-username', {
-        method: 'POST',
+      fetch("/save-username", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ username: this.username })
+        body: JSON.stringify({ username: this.username }),
       })
-      .then(response => {
-        if (response.ok) {
-          console.log('Username saved successfully');
-        } else {
-          console.error('Failed to save username');
-        }
-      })
-      .catch(error => {
-        console.error('Error saving username:', error);
-      });
+        .then((response) => {
+          if (response.ok) {
+            console.log("Username saved successfully");
+          } else {
+            console.error("Failed to save username");
+          }
+        })
+        .catch((error) => {
+          console.error("Error saving username:", error);
+        });
     },
 
     incrementScore() {
@@ -2413,6 +2419,7 @@ export default {
           // Select questions based on the chosen category name
           this.questionsToDisplay = this.questions[selectedCategory.name];
           this.testStarted = true;
+          this.totalQuestions = this.questionsToDisplay.length;
         } else {
           alert("Invalid category selected. Please choose a valid category.");
         }
@@ -2499,7 +2506,7 @@ export default {
 </script>
 
 <style scoped>
-.notify{
+.notify {
   margin: 20px;
   height: 100px;
   width: 100px;
@@ -2780,5 +2787,4 @@ export default {
 .footer-social {
   text-align: center; /* Align icons to the center */
 }
-
 </style>

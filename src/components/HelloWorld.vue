@@ -1,5 +1,5 @@
 <template>
- <div id="adsgoeshere" style="background: #1d1f29; padding-top:60px; text-align: center;" v-html="adsenseContent"></div>
+  <div id="adsgoeshere" v-html="adsenseContent"></div>
 
   <div class="container">
     <!-- Add the score display -->
@@ -93,13 +93,18 @@
 
   <!-- Thumbs-down icon -->
   <div v-if="showThumbsDown" class="thumbs-down">👎</div>
+
+  <div class="footer-bottom">
+          <p>&copy; 2024 Maktechit. All rights reserved.</p>
+          <p>Designed by <a href="#" target="_blank">Jean-Claude (.Com)</a></p>
+        </div>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      adsenseContent: '',
+      aadsenseContent: "",
       consecutiveCorrectAnswers: 0, // Track consecutive correct answers
       consecutiveIncorrectAnswers: 0, // Track consecutive incorrect answers
       showThumbsUp: false,
@@ -152,7 +157,6 @@ export default {
   },
 
   methods: {
-    
     incrementScore() {
       this.score++;
     },
@@ -251,7 +255,8 @@ export default {
 
     nextQuestion() {
       // Check if the selected answer is correct
-      const correctAnswer = this.questionsToDisplay[this.currentIndex].correctAnswer;
+      const correctAnswer =
+        this.questionsToDisplay[this.currentIndex].correctAnswer;
       if (this.selectedAnswer !== correctAnswer) {
         // Play incorrect sound
         this.playIncorrectSound();
@@ -316,8 +321,10 @@ export default {
     },
   },
   mounted() {
-    this.adsenseContent = document.getElementById('divadsensedisplaynone').innerHTML
-},
+    this.adsenseContent = document.getElementById(
+      "adsgoeshere"
+    ).innerHTML;
+  },
 };
 </script>
 
@@ -515,5 +522,18 @@ export default {
   color: red;
   font-size: 11px;
   margin-bottom: 30px;
+}
+.footer-bottom {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.footer-bottom p {
+  margin: 5px 0;
+}
+
+.footer-bottom a {
+  color: rgb(72, 60, 60);
+  text-decoration: none;
 }
 </style>

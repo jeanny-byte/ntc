@@ -110,16 +110,35 @@
         </div> -->
         <div class="footer-social">
           <ul>
-            <li><a href="https://web.facebook.com/jean.amekudzi.5"><i class="fab fa-facebook-f"></i></a></li>
+            <li>
+              <a href="https://web.facebook.com/jean.amekudzi.5"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+            </li>
             <!-- <li><a href="#"><i class="fab fa-twitter"></i></a></li> -->
-            <li><a href="https://www.instagram.com/__.ccom"><i class="fab fa-instagram"></i></a></li>
-            <li><a href="https://www.linkedin.com/in/jean-claude-amekudzi/"><i class="fab fa-linkedin-in"></i></a></li>
+            <li>
+              <a href="https://www.instagram.com/__.ccom"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/jean-claude-amekudzi/"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
         <p>&copy; 2024 Your Company. All rights reserved.</p>
-        <p>Designed by <a href="https://www.linkedin.com/in/jean-claude-amekudzi/" target="_blank">Jean-Claude (.com)</a></p>
+        <p>
+          Designed by
+          <a
+            href="https://www.linkedin.com/in/jean-claude-amekudzi/"
+            target="_blank"
+            >Jean-Claude (.com)</a
+          >
+        </p>
       </div>
     </div>
   </footer>
@@ -143,36 +162,818 @@ export default {
       selectedAnswer: null,
       score: 0,
       categories: [
-        { id: 1, name: "category1" },
-        { id: 2, name: "category2" },
+        { id: 1, name: "ESSENTIAL_PEDAGOGIES_AND_PROFESSIONAL_PRACTICE" },
+        { id: 2, name: "PROFESSIONAL_ATTITUDES_VALUES_AND_ETHICS_IN_TEACHING" },
         // Add more categories here
       ],
       questions: {
         // Define questions for each category
-        category1: [
+        ESSENTIAL_PEDAGOGIES_AND_PROFESSIONAL_PRACTICE: [
           {
             text: "Question 1 for Category 1?",
             options: ["Option A", "Option B", "Option C"],
             correctAnswer: "Option A",
           },
           {
-            text: "Question 2 for Category 1?",
-            options: ["Option A", "Option B", "Option C"],
-            correctAnswer: "Option B",
+            text: "What are the two main types of curricula implemented in Ghana?",
+            options: [
+              "Standards-Based Curriculum and Objective-Based Curriculum",
+              "Behaviorism and Constructivism",
+              "Basic School Curriculum and Professional Practice",
+            ],
+            correctAnswer:
+              "Standards-Based Curriculum and Objective-Based Curriculum",
           },
           {
-            text: "Question 3 for Category 1?",
-            options: ["Option A", "Option B", "Option C"],
-            correctAnswer: "Option C",
+            text: "What is the purpose of the Standards-Based Curriculum?",
+            options: [
+              "To specify a series of skills, values, and competencies at specified stages of learning",
+              "To promote global citizenship",
+              "To guide the development of standards-based curricula for tertiary education",
+            ],
+            correctAnswer:
+              "To specify a series of skills, values, and competencies at specified stages of learning",
+          },
+          {
+            text: "What is the main characteristic of the Objective-Based Curriculum?",
+            options: [
+              "Sequentially appropriate",
+              "Accountability oriented",
+              "Developmentally appropriate",
+            ],
+            correctAnswer: "Developmentally appropriate",
+          },
+          {
+            text: "According to Tanner and Tanner (1980), how is curriculum defined?",
+            options: [
+              "As the planned and guided learning experiences formulated through the systematic reconstruction of knowledge",
+              "As the process of teaching and learning",
+              "As the assessment of learners' continuous growth",
+            ],
+            correctAnswer:
+              "As the planned and guided learning experiences formulated through the systematic reconstruction of knowledge",
+          },
+          {
+            text: "What is the teaching philosophy of the Standards-Based Curriculum?",
+            options: [
+              "To encourage passive learning",
+              "To use innovative, creative, and practical ways of teaching school subjects",
+              "To focus on memorization of facts",
+            ],
+            correctAnswer:
+              "To use innovative, creative, and practical ways of teaching school subjects",
+          },
+          {
+            text: "What is emphasized in the learning philosophy of the Standards-Based Curriculum?",
+            options: [
+              "Passive acquisition of knowledge",
+              "Constructing knowledge based on learners' experiences",
+              "Memorization of information without context",
+            ],
+            correctAnswer:
+              "Constructing knowledge based on learners' experiences",
+          },
+          {
+            text: "What are the components of the Basic School Curriculum?",
+            options: [
+              "Philosophy, Vision, and Lesson Plans",
+              "Rationale, Aim, and Teaching Strategies",
+              "Strand number, sub-strand number, and content strand number",
+            ],
+            correctAnswer:
+              "Strand number, sub-strand number, and content strand number",
+          },
+          {
+            text: "What is the main purpose of the Basic School Curriculum?",
+            options: [
+              "To guide the development of standards-based curricula for tertiary education",
+              "To promote and achieve quality teaching and learning",
+              "To create learning opportunities for learners",
+            ],
+            correctAnswer:
+              "To promote and achieve quality teaching and learning",
+          },
+          {
+            text: "Which curriculum is competency-based?",
+            options: [
+              "Standards-Based Curriculum",
+              "Objective-Based Curriculum",
+              "Basic School Curriculum",
+            ],
+            correctAnswer: "Basic School Curriculum",
+          },
+          {
+            text: "What is the role of teachers in the teaching philosophy of the Standards-Based Curriculum?",
+            options: [
+              "To create passive learning environments",
+              "To motivate learners to develop critical thinking and problem-solving skills",
+              "To focus solely on delivering content",
+            ],
+            correctAnswer:
+              "To motivate learners to develop critical thinking and problem-solving skills",
+          },
+          {
+            text: "According to Tanner and Tanner (1980), what are the intended learning outcomes of the curriculum?",
+            options: [
+              "To create passive learners",
+              "To foster continuous and wilful growth in personal social competence",
+              "To prioritize memorization over understanding",
+            ],
+            correctAnswer:
+              "To foster continuous and wilful growth in personal social competence",
+          },
+          {
+            text: "What type of learning experiences does the curriculum aim to provide?",
+            options: [
+              "Passive and rote memorization",
+              "Active and contextualized construction of knowledge",
+              "Isolated and unrelated facts",
+            ],
+            correctAnswer:
+              "Active and contextualized construction of knowledge",
+          },
+          {
+            text: "What is the main focus of the Objective-Based Curriculum?",
+            options: [
+              "To specify a series of skills, values, and competencies at specified stages of learning",
+              "To guide the development of standards-based curricula for tertiary education",
+              "To create learning opportunities for learners",
+            ],
+            correctAnswer:
+              "To specify a series of skills, values, and competencies at specified stages of learning",
+          },
+          {
+            text: "What is emphasized in the teaching philosophy of the Standards-Based Curriculum?",
+            options: [
+              "To encourage rote memorization",
+              "To use innovative, creative, and practical ways of teaching school subjects",
+              "To discourage active participation from learners",
+            ],
+            correctAnswer:
+              "To use innovative, creative, and practical ways of teaching school subjects",
+          },
+          {
+            text: "What is the role of learners in the learning philosophy of the Standards-Based Curriculum?",
+            options: [
+              "To passively receive information",
+              "To construct knowledge based on their experiences",
+              "To solely rely on teachers for knowledge acquisition",
+            ],
+            correctAnswer: "To construct knowledge based on their experiences",
+          },
+          {
+            text: "What is the primary objective of the Ghanaian school curriculum?",
+            options: [
+              "To promote global citizenship",
+              "To guide the development of standards-based curricula for tertiary education",
+              "To equip learners with relevant knowledge, skills, and competencies",
+            ],
+            correctAnswer:
+              "To equip learners with relevant knowledge, skills, and competencies",
+          },
+          {
+            text: "What is the significance of the teaching and learning approaches in the curriculum?",
+            options: [
+              "To hinder learners' critical thinking abilities",
+              "To promote passive learning",
+              "To facilitate active participation and critical thinking",
+            ],
+            correctAnswer:
+              "To facilitate active participation and critical thinking",
+          },
+          {
+            text: "Which type of curriculum specifies behaviors learners are expected to exhibit at the end of a learning session?",
+            options: [
+              "Standards-Based Curriculum",
+              "Objective-Based Curriculum",
+              "Basic School Curriculum",
+            ],
+            correctAnswer: "Objective-Based Curriculum",
+          },
+          {
+            text: "What is the main focus of the Rationale for the Basic School Curriculum?",
+            options: [
+              "To promote and achieve quality teaching and learning",
+              "To encourage passive learning",
+              "To guide the development of standards-based curricula for tertiary education",
+            ],
+            correctAnswer:
+              "To promote and achieve quality teaching and learning",
+          },
+          {
+            text: "What is the role of teachers in the learning philosophy of the curriculum?",
+            options: [
+              "To create passive learning environments",
+              "To facilitate the construction of learners' knowledge",
+              "To discourage critical thinking",
+            ],
+            correctAnswer:
+              "To facilitate the construction of learners' knowledge",
+          },
+          {
+            text: "What is the primary emphasis of the Standards-Based Curriculum?",
+            options: [
+              "Memorization of facts",
+              "Development of critical thinking skills",
+              "Promotion of passive learning",
+            ],
+            correctAnswer: "Development of critical thinking skills",
+          },
+          {
+            text: "Which curriculum emphasizes learners' active participation in the learning process?",
+            options: [
+              "Standards-Based Curriculum",
+              "Objective-Based Curriculum",
+              "Basic School Curriculum",
+            ],
+            correctAnswer: "Standards-Based Curriculum",
+          },
+          {
+            text: "What is the role of teachers according to the teaching philosophy of the Standards-Based Curriculum?",
+            options: [
+              "To promote passive learning",
+              "To discourage learners' participation",
+              "To create learning opportunities and motivate learners",
+            ],
+            correctAnswer:
+              "To create learning opportunities and motivate learners",
+          },
+          {
+            text: "What does the curriculum aim to develop in learners?",
+            options: [
+              "Rote memorization",
+              "Critical thinking and problem-solving skills",
+              "Passive learning habits",
+            ],
+            correctAnswer: "Critical thinking and problem-solving skills",
+          },
+          {
+            text: "What is the primary focus of the teaching philosophy of the Standards-Based Curriculum?",
+            options: [
+              "To use traditional teaching methods",
+              "To encourage innovative teaching approaches",
+              "To focus on passive learning",
+            ],
+            correctAnswer: "To encourage innovative teaching approaches",
+          },
+          {
+            text: "What is the primary role of learners in the learning philosophy of the Standards-Based Curriculum?",
+            options: [
+              "To rely solely on teachers for knowledge acquisition",
+              "To construct knowledge based on their experiences",
+              "To passively receive information",
+            ],
+            correctAnswer: "To construct knowledge based on their experiences",
+          },
+          {
+            text: "What is the main characteristic of the Objective-Based Curriculum?",
+            options: [
+              "Accountability oriented",
+              "Sequentially appropriate",
+              "Developmentally appropriate",
+            ],
+            correctAnswer: "Developmentally appropriate",
+          },
+          {
+            text: "What is the main emphasis of the Rationale for the Basic School Curriculum?",
+            options: [
+              "To guide the development of standards-based curricula for tertiary education",
+              "To promote and achieve quality teaching and learning",
+              "To encourage passive learning",
+            ],
+            correctAnswer:
+              "To promote and achieve quality teaching and learning",
+          },
+          {
+            text: "What is the primary role of teachers according to the learning philosophy of the curriculum?",
+            options: [
+              "To promote passive learning",
+              "To create learning opportunities and motivate learners",
+              "To discourage critical thinking",
+            ],
+            correctAnswer:
+              "To create learning opportunities and motivate learners",
+          },
+          {
+            text: "What is the main focus of the teaching philosophy of the curriculum?",
+            options: [
+              "To encourage rote memorization",
+              "To use innovative, creative, and practical ways of teaching school subjects",
+              "To discourage active participation from learners",
+            ],
+            correctAnswer:
+              "To use innovative, creative, and practical ways of teaching school subjects",
+          },
+          {
+            text: "What is the primary goal of the Ghanaian school curriculum?",
+            options: [
+              "To promote global citizenship",
+              "To guide the development of standards-based curricula for tertiary education",
+              "To equip learners with relevant knowledge, skills, and competencies",
+            ],
+            correctAnswer:
+              "To equip learners with relevant knowledge, skills, and competencies",
+          },
+          {
+            text: "What is emphasized in the learning philosophy of the curriculum?",
+            options: [
+              "Passive acquisition of knowledge",
+              "Constructing knowledge based on learners' experiences",
+              "Memorization of information without context",
+            ],
+            correctAnswer:
+              "Constructing knowledge based on learners' experiences",
+          },
+          {
+            text: "What is the main focus of the Objective-Based Curriculum?",
+            options: [
+              "To specify a series of skills, values, and competencies at specified stages of learning",
+              "To guide the development of standards-based curricula for tertiary education",
+              "To create learning opportunities for learners",
+            ],
+            correctAnswer:
+              "To specify a series of skills, values, and competencies at specified stages of learning",
+          },
+          {
+            text: "What is emphasized in the teaching philosophy of the curriculum?",
+            options: [
+              "To encourage passive learning",
+              "To use innovative, creative, and practical ways of teaching school subjects",
+              "To focus on memorization of facts",
+            ],
+            correctAnswer:
+              "To use innovative, creative, and practical ways of teaching school subjects",
+          },
+          {
+            text: "What is the role of learners in the learning philosophy of the curriculum?",
+            options: [
+              "To passively receive information",
+              "To construct knowledge based on their experiences",
+              "To solely rely on teachers for knowledge acquisition",
+            ],
+            correctAnswer: "To construct knowledge based on their experiences",
+          },
+          {
+            text: "What is the primary objective of the Ghanaian school curriculum?",
+            options: [
+              "To promote global citizenship",
+              "To guide the development of standards-based curricula for tertiary education",
+              "To equip learners with relevant knowledge, skills, and competencies",
+            ],
+            correctAnswer:
+              "To equip learners with relevant knowledge, skills, and competencies",
+          },
+          {
+            text: "What is the significance of the teaching and learning approaches in the curriculum?",
+            options: [
+              "To hinder learners' critical thinking abilities",
+              "To promote passive learning",
+              "To facilitate active participation and critical thinking",
+            ],
+            correctAnswer:
+              "To facilitate active participation and critical thinking",
+          },
+          {
+            text: "Which type of curriculum specifies behaviors learners are expected to exhibit at the end of a learning session?",
+            options: [
+              "Standards-Based Curriculum",
+              "Objective-Based Curriculum",
+              "Basic School Curriculum",
+            ],
+            correctAnswer: "Objective-Based Curriculum",
+          },
+          {
+            text: "What is the main focus of the Rationale for the Basic School Curriculum?",
+            options: [
+              "To promote and achieve quality teaching and learning",
+              "To encourage passive learning",
+              "To guide the development of standards-based curricula for tertiary education",
+            ],
+            correctAnswer:
+              "To promote and achieve quality teaching and learning",
+          },
+          {
+            text: "What is the role of teachers in the learning philosophy of the curriculum?",
+            options: [
+              "To create passive learning environments",
+              "To facilitate the construction of learners' knowledge",
+              "To discourage critical thinking",
+            ],
+            correctAnswer:
+              "To facilitate the construction of learners' knowledge",
+          },
+          {
+            text: "What is the primary emphasis of the Standards-Based Curriculum?",
+            options: [
+              "Memorization of facts",
+              "Development of critical thinking skills",
+              "Promotion of passive learning",
+            ],
+            correctAnswer: "Development of critical thinking skills",
+          },
+          {
+            text: "Which curriculum emphasizes learners' active participation in the learning process?",
+            options: [
+              "Standards-Based Curriculum",
+              "Objective-Based Curriculum",
+              "Basic School Curriculum",
+            ],
+            correctAnswer: "Standards-Based Curriculum",
+          },
+          {
+            text: "What is the role of teachers according to the teaching philosophy of the Standards-Based Curriculum?",
+            options: [
+              "To promote passive learning",
+              "To discourage learners' participation",
+              "To create learning opportunities and motivate learners",
+            ],
+            correctAnswer:
+              "To create learning opportunities and motivate learners",
+          },
+          {
+            text: "What does the curriculum aim to develop in learners?",
+            options: [
+              "Rote memorization",
+              "Critical thinking and problem-solving skills",
+              "Passive learning habits",
+            ],
+            correctAnswer: "Critical thinking and problem-solving skills",
+          },
+          {
+            text: "What is the primary focus of the teaching philosophy of the Standards-Based Curriculum?",
+            options: [
+              "To use traditional teaching methods",
+              "To encourage innovative teaching approaches",
+              "To focus on passive learning",
+            ],
+            correctAnswer: "To encourage innovative teaching approaches",
+          },
+          {
+            text: "What is the primary role of learners in the learning philosophy of the Standards-Based Curriculum?",
+            options: [
+              "To rely solely on teachers for knowledge acquisition",
+              "To construct knowledge based on their experiences",
+              "To passively receive information",
+            ],
+            correctAnswer: "To construct knowledge based on their experiences",
+          },
+          {
+            text: "What is the relationship between a scheme of work and a lesson plan?",
+            options: [
+              "A scheme of work guides a lesson plan",
+              "A lesson plan guides a scheme of work",
+              "A scheme of work and a lesson plan are unrelated",
+            ],
+            correctAnswer: "A scheme of work guides a lesson plan",
+          },
+          {
+            text: "Who is responsible for planning the syllabus in Ghana?",
+            options: [
+              "The classroom teachers",
+              "NaCCA",
+              "The Ministry of Education",
+            ],
+            correctAnswer: "NaCCA",
+          },
+          {
+            text: "Which condition is necessary for effective lesson plan preparation?",
+            options: [
+              "Good revision of the subject matter",
+              "Memorization of the syllabus",
+              "Limited knowledge of the topic",
+            ],
+            correctAnswer: "Good revision of the subject matter",
+          },
+          {
+            text: "What should teachers consider when planning a lesson?",
+            options: [
+              "Only the subject matter",
+              "The ages and abilities of the learners",
+              "Their personal preferences",
+            ],
+            correctAnswer: "The ages and abilities of the learners",
+          },
+          {
+            text: "What is the purpose of considering the choice of communication channel in lesson planning?",
+            options: [
+              "To make the lesson more confusing",
+              "To ensure effective communication with learners",
+              "To limit communication with learners",
+            ],
+            correctAnswer: "To ensure effective communication with learners",
+          },
+          {
+            text: "What is essential for enhancing the teaching and learning process?",
+            options: [
+              "Limited and irrelevant teaching-learning resources",
+              "Adequate, relevant, quality teaching-learning resources",
+              "Absence of teaching-learning resources",
+            ],
+            correctAnswer:
+              "Adequate, relevant, quality teaching-learning resources",
+          },
+          {
+            text: "What do lesson plans help teachers to specify?",
+            options: [
+              "The weather forecast",
+              "The instructional objectives",
+              "The class seating arrangement",
+            ],
+            correctAnswer: "The instructional objectives",
+          },
+          {
+            text: "What is the purpose of organising complex materials into smaller parts in lesson planning?",
+            options: [
+              "To make the lesson more confusing",
+              "To facilitate the presentation of the lesson",
+              "To complicate the learning process",
+            ],
+            correctAnswer: "To facilitate the presentation of the lesson",
+          },
+          {
+            text: "What do lesson plans help establish regarding learners' lessons?",
+            options: [
+              "Their favorite subject",
+              "Their hobbies",
+              "How lessons will be assessed or evaluated",
+            ],
+            correctAnswer: "How lessons will be assessed or evaluated",
+          },
+          {
+            text: "What are some of the core competencies mentioned?",
+            options: [
+              "Cooking skills",
+              "Financial management",
+              "Critical thinking and Problem-solving",
+            ],
+            correctAnswer: "Critical thinking and Problem-solving",
+          },
+          {
+            text: "What is the primary role of a starter in lesson planning?",
+            options: [
+              "To stimulate curiosity and open-mindedness",
+              "To put learners to sleep",
+              "To confuse learners",
+            ],
+            correctAnswer: "To stimulate curiosity and open-mindedness",
+          },
+          {
+            text: "What activities are included in the main phase of a lesson?",
+            options: [
+              "Napping",
+              "Exploring new learning content",
+              "Ignoring the teacher",
+            ],
+            correctAnswer: "Exploring new learning content",
+          },
+          {
+            text: "What is the purpose of the plenary/reflections phase in lesson planning?",
+            options: [
+              "To entertain learners",
+              "To waste time",
+              "To reflect on and consolidate the learning",
+            ],
+            correctAnswer: "To reflect on and consolidate the learning",
+          },
+          {
+            text: "What is the primary purpose of learning theories?",
+            options: [
+              "To confuse teachers",
+              "To provide models for teaching and learning",
+              "To complicate the learning process",
+            ],
+            correctAnswer: "To provide models for teaching and learning",
+          },
+          {
+            text: "What do behaviourism learning theories focus on?",
+            options: ["External factors", "Internal factors", "The weather"],
+            correctAnswer: "External factors",
+          },
+          {
+            text: "Who are some notable behaviourism theorists mentioned?",
+            options: ["Albert Einstein", "Ivan Pavlov", "Shakespeare"],
+            correctAnswer: "Ivan Pavlov",
+          },
+          {
+            text: "What is the primary idea behind social learning theory?",
+            options: [
+              "Learning occurs in isolation",
+              "People learn by observing others",
+              "People learn best alone",
+            ],
+            correctAnswer: "People learn by observing others",
+          },
+          {
+            text: "What does cognitive learning theory focus on?",
+            options: [
+              "External factors",
+              "Internal factors",
+              "The teacher's mood",
+            ],
+            correctAnswer: "Internal factors",
+          },
+          {
+            text: "Who developed the cognitive constructivism view of learning?",
+            options: ["Albert Einstein", "Lee Vygotsky", "Jean Piaget"],
+            correctAnswer: "Jean Piaget",
+          },
+          {
+            text: "What is the main idea behind constructivism learning theory?",
+            options: [
+              "Learning is passive",
+              "Learners construct knowledge",
+              "Learners memorize information",
+            ],
+            correctAnswer: "Learners construct knowledge",
+          },
+          {
+            text: "What do constructivists believe influences learning?",
+            options: [
+              "The weather",
+              "Prior knowledge and experiences",
+              "The time of day",
+            ],
+            correctAnswer: "Prior knowledge and experiences",
+          },
+          {
+            text: "What is the primary goal of inclusive education?",
+            options: [
+              "To exclude certain learners",
+              "To accommodate all children",
+              "To limit access to education",
+            ],
+            correctAnswer: "To accommodate all children",
+          },
+          {
+            text: "What are some areas of learner diversity mentioned?",
+            options: [
+              "Hair color",
+              "Socio-economic backgrounds",
+              "Favorite food",
+            ],
+            correctAnswer: "Socio-economic backgrounds",
+          },
+          {
+            text: "What does inclusive education take into consideration regarding gender issues?",
+            options: [
+              "It promotes unfair treatment of females",
+              "It perpetuates gender stereotypes",
+              "It addresses unfair treatment based on false assumptions",
+            ],
+            correctAnswer:
+              "It addresses unfair treatment based on false assumptions",
+          },
+          {
+            text: "What are some reasons for implementing UDL in schools?",
+            options: [
+              "To make learning difficult for students",
+              "To limit access to education",
+              "To ensure all learners receive relevant, appropriate, and targeted provision",
+            ],
+            correctAnswer:
+              "To ensure all learners receive relevant, appropriate, and targeted provision",
+          },
+          {
+            text: "What is a guiding principle of inclusive education?",
+            options: [
+              "Exclusion of certain children",
+              "Accommodation of all children",
+              "Favoritism towards certain children",
+            ],
+            correctAnswer: "Accommodation of all children",
+          },
+          {
+            text: "What do activities promoting inclusive education involve?",
+            options: [
+              "Segregation of learners",
+              "Flexibility in assessment",
+              "Limited support for learners",
+            ],
+            correctAnswer: "Flexibility in assessment",
+          },
+          {
+            text: "What is the purpose of Universal Design for Learning (UDL)?",
+            options: [
+              "To complicate lesson planning",
+              "To anticipate and plan for all learners",
+              "To exclude certain learners",
+            ],
+            correctAnswer: "To anticipate and plan for all learners",
+          },
+          {
+            text: "What is one benefit of using UDL in teaching?",
+            options: [
+              "It makes learning inaccessible",
+              "It ensures only certain learners can access learning",
+              "It helps ensure the greatest range of learners can access and engage in learning",
+            ],
+            correctAnswer:
+              "It helps ensure the greatest range of learners can access and engage in learning",
+          },
+          {
+            text: "What are the basic principles of Universal Design for Learning?",
+            options: [
+              "The where, when, and why of learning",
+              "The why, what, and how of learning",
+              "The who, what, and where of learning",
+            ],
+            correctAnswer: "The why, what, and how of learning",
+          },
+          {
+            text: "What is the purpose of social-emotional learning (SEL)?",
+            options: [
+              "To ignore learners' emotions",
+              "To develop self-awareness and interpersonal skills",
+              "To limit learners' social interactions",
+            ],
+            correctAnswer: "To develop self-awareness and interpersonal skills",
+          },
+          {
+            text: "What does SEL support learners to recognize?",
+            options: [
+              "That feelings are irrelevant",
+              "That emotions are experienced similarly by everyone",
+              "That feelings are valid",
+            ],
+            correctAnswer: "That feelings are valid",
+          },
+          {
+            text: "What are the core areas of developing skills in SEL?",
+            options: ["Three", "Four", "Five"],
+            correctAnswer: "Five",
+          },
+          {
+            text: "What is an activity that promotes conflict resolution in SEL?",
+            options: [
+              "Encouraging learners to fight",
+              "Having learners ignore conflicts",
+              "Discussing conflicts and suggesting solutions respectfully",
+            ],
+            correctAnswer:
+              "Discussing conflicts and suggesting solutions respectfully",
+          },
+          {
+            text: "What is an example of an activity promoting self-awareness in SEL?",
+            options: [
+              "Ignoring learners' emotions",
+              "Encouraging learners to express their emotions",
+              "Making learners feel ashamed of their emotions",
+            ],
+            correctAnswer: "Encouraging learners to express their emotions",
+          },
+          {
+            text: "How many minutes does the teacher spend on meditation/visualization in Activity 2?",
+            options: ["2 minutes", "3 minutes", "5 minutes"],
+            correctAnswer: "3 minutes",
+          },
+          {
+            text: "What is an activity that promotes self-management in SEL?",
+            options: [
+              "Having learners act impulsively",
+              "Teaching learners to manage their emotions and behaviors effectively",
+              "Ignoring learners' emotions and behaviors",
+            ],
+            correctAnswer:
+              "Teaching learners to manage their emotions and behaviors effectively",
+          },
+          {
+            text: "What is the relationship between UDL and SEL?",
+            options: [
+              "They are unrelated",
+              "They promote exclusion in education",
+              "They both aim to ensure all learners can access and engage in learning",
+            ],
+            correctAnswer:
+              "They both aim to ensure all learners can access and engage in learning",
+          },
+          {
+            text: "How would you help promote inclusive education in your classroom?",
+            options: [
+              "By excluding certain learners",
+              "By fostering a supportive environment for all learners",
+              "By ignoring diversity among learners",
+            ],
+            correctAnswer:
+              "By fostering a supportive environment for all learners",
+          },
+          {
+            text: "What practices would you adopt to foster achieving both UDL and SEL in the classroom?",
+            options: [
+              "Ignoring the needs of diverse learners",
+              "Promoting flexibility in teaching and learning",
+              "Limiting access to education",
+            ],
+            correctAnswer: "Promoting flexibility in teaching and learning",
           },
           // Add more questions for Category 1 here
         ],
-        category2: [
+        PROFESSIONAL_ATTITUDES_VALUES_AND_ETHICS_IN_TEACHING: [
           {
             text: "Question 1 for Category 2?",
             options: ["Option A", "Option B", "Option C"],
             correctAnswer: "Option B",
           },
+
           // Add more questions for Category 2 here
         ],
       },
@@ -346,9 +1147,7 @@ export default {
     },
   },
   mounted() {
-    this.adsenseContent = document.getElementById(
-      "adsgoeshere"
-    ).innerHTML;
+    this.adsenseContent = document.getElementById("adsgoeshere").innerHTML;
   },
 };
 </script>
@@ -616,5 +1415,4 @@ export default {
   font-size: 18px;
   text-decoration: none;
 }
-
 </style>

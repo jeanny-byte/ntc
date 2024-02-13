@@ -184,11 +184,7 @@ export default {
       questions: {
         // Define questions for each category
         ESSENTIAL_PEDAGOGIES_AND_PROFESSIONAL_PRACTICE: [
-          {
-            text: "Question 1 for Category 1?",
-            options: ["Option A", "Option B", "Option C"],
-            correctAnswer: "Option A",
-          },
+    
           {
             text: "What are the two main types of curricula implemented in Ghana?",
             options: [
@@ -2309,6 +2305,12 @@ export default {
       questionsToDisplay: [], // Initialize questionsToDisplay as an empty array
       totalRounds: 3, // Define total number of rounds
     };
+  },
+  computed: {
+    passingScore() {
+      // Calculate passing score as 80% of total questions
+      return Math.round(this.totalQuestions * this.passingScorePercentage);
+    },
   },
 
   methods: {

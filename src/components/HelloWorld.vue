@@ -1339,7 +1339,7 @@ export default {
     ],
     correctAnswer: "Citing assistance from colleagues or external sources",
   },
-  {
+   {
     text: "What is the purpose of the '__init__' method in Python classes?",
     options: [
       "To initialize an object's attributes",

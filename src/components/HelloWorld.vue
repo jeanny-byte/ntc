@@ -2530,11 +2530,11 @@ export default {
   width: 100px;
 }
 .container {
+  
   position: relative;
 }
 
 .score-circle {
-  position: relative;
   top: 20px;
   right: 20px;
   width: 50px;

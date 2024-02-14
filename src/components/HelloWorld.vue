@@ -2322,7 +2322,7 @@ export default {
 
           // Call function to check for consecutive incorrect answers
           this.checkConsecutiveIncorrectAnswers();
-        }, 5000);
+        }, 2000);
       } else {
         // Increment score
         this.incrementScore();

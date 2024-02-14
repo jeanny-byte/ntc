@@ -8,12 +8,12 @@
 
       <!-- Rest of the template code -->
     </div>
-    <img class="ntclogo" src="../assets/ntclogo.png" />
+    <img class="ntclogo" src="../assets/log.png" />
     <div>
       <div v-if="!testStarted">
         <div class="quiz-rules">
           <p>
-            Welcome to the NTC Non-Professional teachers quize! Here's how it
+            Welcome, this is Non-Professional teachers quize! Here's how it
             works:
           </p>
           <ul type="none">
@@ -29,7 +29,7 @@
         </div>
 
         <div class="popup">
-          <h2>Welcome to NTC Training Module Test</h2>
+          <h2>Welcome to our Training Module Test</h2>
           <input type="text" placeholder="Enter your name" v-model="userName" />
           <select v-model="selectedCategory">
             <option value="">Select a category</option>

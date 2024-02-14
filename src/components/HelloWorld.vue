@@ -1,4 +1,5 @@
 <template>
+   <div class="background-container">
   <div id="adsgoeshere" v-html="adsenseContent"></div>
 
   <div class="container">
@@ -96,7 +97,7 @@
     </div>
   </div>
   <!-- Thumbs-up icon -->
-  <div v-if="showThumbsUp" class="thumbs-up">👍</div>
+  <div v-if="showThumbsUp" class="thumbs-up">❤️</div>
 
   <!-- Thumbs-down icon -->
   <div v-if="showThumbsDown" class="thumbs-down">👎</div>
@@ -146,11 +147,12 @@
       </div>
     </div>
   </footer>
+  </div>
 </template>
 
 <script>
 // Import the necessary Font Awesome files
-
+// import gifBackground from '@/assets/background/Love.gif'; // Adjust the path as needed
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -159,6 +161,7 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 library.add(fab);
 
 export default {
+  
   components: {
     FontAwesomeIcon,
   },
@@ -2416,6 +2419,7 @@ export default {
       setTimeout(() => {
         this.showThumbsDown = false;
       }, 2000); // Adjust the duration as needed
+      this.selectedAnswer = null;
     },
     startTest() {
       if (this.userName && this.selectedCategory) {
@@ -2798,5 +2802,20 @@ export default {
   color: #fff;
   font-size: 18px;
   text-decoration: none;
+}
+.background-container {
+  /* Set the size and position of the container */
+  width: 100%;
+  height: 100%;
+  position: relative;
+  /* Apply the GIF as the background image */
+  background-image: url('../assets/background/Love.gif'); /* Adjust the path as needed */
+  background-size: cover; /* Adjust as needed */
+  background-position: center; /* Adjust as needed */
+  /* Additional styles for positioning and appearance */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 </style>

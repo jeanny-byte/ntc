@@ -1,152 +1,158 @@
 <template>
-   <div class="background-container">
-  <div id="adsgoeshere" v-html="adsenseContent"></div>
+  <div class="background-container">
+    <div id="adsgoeshere" v-html="adsenseContent"></div>
 
-  <div class="container">
-    <!-- Add the score display -->
-    <div class="score-circle">{{ score }}</div>
-
-    <!-- Rest of the template code -->
-  </div>
-  <img class="ntclogo" src="../assets/ntclogo.png" />
-  <div>
-    <div v-if="!testStarted">
-      <div class="quiz-rules">
-        <p>
-          Welcome to the NTC Non-Professional teachers quize! Here's how it
-          works:
-        </p>
-        <ul type="none">
-          <li>
-            All questions are generated from the 2023/24 Training Manual For Non
-            Professional Teachers<br />
-            Answer: Choose the option you think is correct for each question. If
-            you're unsure, take your best guess!<br />
-            Passing Grade: To pass the quiz, you'll need to score 80% or
-            higher.<br />
-          </li>
-        </ul>
-      </div>
-
-      <div class="popup">
-        <h2>Welcome to NTC Training Module Test</h2>
-        <input type="text" placeholder="Enter your name" v-model="userName" />
-        <select v-model="selectedCategory">
-          <option value="">Select a category</option>
-          <option
-            v-for="category in categories"
-            :key="category.id"
-            :value="category.id"
-          >
-            {{ category.name }}
-          </option>
-        </select>
-        <button @click="startTest">Start Test</button>
-      </div>
-    </div>
-    <div v-else>
-      <!-- Question Carousel -->
-      <div
-        v-if="currentIndex < questionsToDisplay.length"
-        class="carousel-container"
-      >
-        <p>{{ currentIndex + 1 }} / {{ questionsToDisplay.length }}</p>
-        <h2 class="question-title">
-          {{ currentIndex + 1 }}. {{ questionsToDisplay[currentIndex].text }}
-        </h2>
-        <ul class="options-list">
-          <li
-            v-for="(option, index) in questionsToDisplay[currentIndex].options"
-            :key="index"
-            class="option-item"
-          >
-            <input
-              type="radio"
-              :id="'option' + index"
-              :value="option"
-              v-model="selectedAnswer"
-              class="option-input"
-            />
-            <label :for="'option' + index" class="option-label">{{
-              option
-            }}</label>
-          </li>
-        </ul>
-        <button @click="nextQuestion(), saveUsername()" class="next-button">
-          Next
-        </button>
-        <!--Hidden div-->
-        <div v-if="showCorrectAnswer" class="correct-answer">
-          Correct answer:
-          <span style="color: green; font-weight: bold">{{
-            questionsToDisplay[currentIndex].correctAnswer
-          }}</span>
-        </div>
-      </div>
-
-      <div v-else>
-        <!-- Scoring and Feedback Popup -->
-        <div class="popup">
-          <img class="notify" :src="score >= passingScore ? correctImage : cancelImage" />
-                <h3>Your scored {{ score }} / {{ questionsToDisplay.length }}</h3>
-    <h2 v-if="score >= passingScore">Congratulations, {{ userName }}!</h2>
-    <h2 v-else>Sorry, {{ userName }}, you didn't pass.</h2>
-          <button @click="resetTest">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Thumbs-up icon -->
-  <div v-if="showThumbsUp" class="thumbs-up">❤️</div>
-
-  <!-- Thumbs-down icon -->
-  <div v-if="showThumbsDown" class="thumbs-down">👎</div>
-  <footer class="footer">
     <div class="container">
-      <div class="footer-content">
-        <div class="footer-social">
-          <ul>
+      <!-- Add the score display -->
+      <div class="score-circle">{{ score }}</div>
+
+      <!-- Rest of the template code -->
+    </div>
+    <img class="ntclogo" src="../assets/ntclogo.png" />
+    <div>
+      <div v-if="!testStarted">
+        <div class="quiz-rules">
+          <p>
+            Welcome to the NTC Non-Professional teachers quize! Here's how it
+            works:
+          </p>
+          <ul type="none">
             <li>
-              <a href="https://web.facebook.com/jean.amekudzi.5">
-                <font-awesome-icon :icon="['fab', 'facebook-f']" />
-              </a>
-            </li>
-            <!-- <li><a href="#"><font-awesome-icon icon="fab fa-twitter"></font-awesome-icon></a></li> -->
-            <li>
-              <a href="https://www.instagram.com/__.ccom">
-                <font-awesome-icon :icon="['fab', 'instagram']" />
-              </a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/in/jean-claude-amekudzi/">
-                <font-awesome-icon :icon="['fab', 'linkedin-in']" />
-              </a>
-            </li>
-            <li>
-              <a href="https://wa.me/+233530971956">
-                <font-awesome-icon :icon="['fab', 'whatsapp']" />
-              </a>
+              All questions are generated from the 2023/24 Training Manual For
+              Non Professional Teachers<br />
+              Answer: Choose the option you think is correct for each question.
+              If you're unsure, take your best guess!<br />
+              Passing Grade: To pass the quiz, you'll need to score 80% or
+              higher.<br />
             </li>
           </ul>
         </div>
+
+        <div class="popup">
+          <h2>Welcome to NTC Training Module Test</h2>
+          <input type="text" placeholder="Enter your name" v-model="userName" />
+          <select v-model="selectedCategory">
+            <option value="">Select a category</option>
+            <option
+              v-for="category in categories"
+              :key="category.id"
+              :value="category.id"
+            >
+              {{ category.name }}
+            </option>
+          </select>
+          <button @click="startTest">Start Test</button>
+        </div>
       </div>
-      <div class="footer-bottom">
-        <p>
-          &copy; 2024
-          <a href="https://mak-techit.com/" target="_blank">Maktechit</a>. All
-          rights reserved.
-        </p>
-        <p>
-          Designed by
-          <a
-            href="https://www.linkedin.com/in/jean-claude-amekudzi/"
-            target="_blank"
-            >Jean-Claude (.com)</a
-          >
-        </p>
+      <div v-else>
+        <!-- Question Carousel -->
+        <div
+          v-if="currentIndex < questionsToDisplay.length"
+          class="carousel-container"
+        >
+          <p>{{ currentIndex + 1 }} / {{ questionsToDisplay.length }}</p>
+          <h2 class="question-title">
+            {{ currentIndex + 1 }}. {{ questionsToDisplay[currentIndex].text }}
+          </h2>
+          <ul class="options-list">
+            <li
+              v-for="(option, index) in questionsToDisplay[currentIndex]
+                .options"
+              :key="index"
+              class="option-item"
+            >
+              <input
+                type="radio"
+                :id="'option' + index"
+                :value="option"
+                v-model="selectedAnswer"
+                class="option-input"
+              />
+              <label :for="'option' + index" class="option-label">{{
+                option
+              }}</label>
+            </li>
+          </ul>
+          <button @click="nextQuestion(), saveUsername()" class="next-button">
+            Next
+          </button>
+          <!--Hidden div-->
+          <div v-if="showCorrectAnswer" class="correct-answer">
+            Correct answer:
+            <span style="color: green; font-weight: bold">{{
+              questionsToDisplay[currentIndex].correctAnswer
+            }}</span>
+          </div>
+        </div>
+
+        <div v-else>
+          <!-- Scoring and Feedback Popup -->
+          <div class="popup">
+            <img
+              class="notify"
+              :src="score >= passingScore ? correctImage : cancelImage"
+            />
+            <h3>Your scored {{ score }} / {{ questionsToDisplay.length }}</h3>
+            <h2 v-if="score >= passingScore">
+              Congratulations, {{ userName }}!
+            </h2>
+            <h2 v-else>Sorry, {{ userName }}, you didn't pass.</h2>
+            <button @click="resetTest">Close</button>
+          </div>
+        </div>
       </div>
     </div>
-  </footer>
+    <!-- Thumbs-up icon -->
+    <div v-if="showThumbsUp" class="thumbs-up">❤️</div>
+
+    <!-- Thumbs-down icon -->
+    <div v-if="showThumbsDown" class="thumbs-down">🖤</div>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-social">
+            <ul>
+              <li>
+                <a href="https://web.facebook.com/jean.amekudzi.5">
+                  <font-awesome-icon :icon="['fab', 'facebook-f']" />
+                </a>
+              </li>
+              <!-- <li><a href="#"><font-awesome-icon icon="fab fa-twitter"></font-awesome-icon></a></li> -->
+              <li>
+                <a href="https://www.instagram.com/__.ccom">
+                  <font-awesome-icon :icon="['fab', 'instagram']" />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/jean-claude-amekudzi/">
+                  <font-awesome-icon :icon="['fab', 'linkedin-in']" />
+                </a>
+              </li>
+              <li>
+                <a href="https://wa.me/+233530971956">
+                  <font-awesome-icon :icon="['fab', 'whatsapp']" />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024
+            <a href="https://mak-techit.com/" target="_blank">Maktechit</a>. All
+            rights reserved.
+          </p>
+          <p>
+            Designed by
+            <a
+              href="https://www.linkedin.com/in/jean-claude-amekudzi/"
+              target="_blank"
+              >Jean-Claude (.com)</a
+            >
+          </p>
+        </div>
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -161,14 +167,13 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 library.add(fab);
 
 export default {
-  
   components: {
     FontAwesomeIcon,
   },
   data() {
     return {
       passingScorePercentage: 0.8, // 80%
-      totalQuestions: '',
+      totalQuestions: "",
       aadsenseContent: "",
       consecutiveCorrectAnswers: 0, // Track consecutive correct answers
       consecutiveIncorrectAnswers: 0, // Track consecutive incorrect answers
@@ -193,7 +198,6 @@ export default {
       questions: {
         // Define questions for each category
         ESSENTIAL_PEDAGOGIES_AND_PROFESSIONAL_PRACTICE: [
-    
           {
             text: "What are the two main types of curricula implemented in Ghana?",
             options: [
@@ -1006,20 +1010,7 @@ export default {
             ],
             correctAnswer: "To explain teacher professionalism",
           },
-          {
-            text: "What is the duration of this unit?",
-            options: ["One hour", "Two credit hours", "Four hours"],
-            correctAnswer: "Two credit hours",
-          },
-          {
-            text: "What is the primary goal of Session One?",
-            options: [
-              "To discuss teaching methods",
-              "To introduce teacher professionalism",
-              "To teach mathematics",
-            ],
-            correctAnswer: "To introduce teacher professionalism",
-          },
+    
           {
             text: "What are some qualities needed to be an effective teacher?",
             options: [
@@ -1221,458 +1212,313 @@ export default {
           // Add more questions for Category 2 here
         ],
         USE_OF_ICTs_IN_EDUCATION: [
-          {
-            text: "What is object-oriented programming (OOP)?",
-            options: [
-              "A programming paradigm based on objects",
-              "A programming language",
-              "A programming method",
-            ],
-            correctAnswer: "A programming paradigm based on objects",
-          },
-          {
-            text: "What is a class in OOP?",
-            options: [
-              "A function",
-              "A blueprint for creating objects",
-              "A data structure",
-            ],
-            correctAnswer: "A blueprint for creating objects",
-          },
-          {
-            text: "What is inheritance in OOP?",
-            options: [
-              "A way to create multiple instances of a class",
-              "The process of defining a new class based on an existing class",
-              "A way to restrict access to certain class members",
-            ],
-            correctAnswer:
-              "The process of defining a new class based on an existing class",
-          },
-          {
-            text: "What is polymorphism in OOP?",
-            options: [
-              "The ability of a function to take on different forms",
-              "The ability to inherit multiple classes",
-              "The process of creating multiple objects",
-            ],
-            correctAnswer:
-              "The ability of a function to take on different forms",
-          },
-          {
-            text: "What is encapsulation in OOP?",
-            options: [
-              "The process of combining data and functions into a single unit",
-              "The process of creating multiple instances of a class",
-              "The process of creating subclasses",
-            ],
-            correctAnswer:
-              "The process of combining data and functions into a single unit",
-          },
-          {
-            text: "What is a constructor in OOP?",
-            options: [
-              "A method that is called when an object is created",
-              "A method that is called when an object is destroyed",
-              "A method that is called when an object is modified",
-            ],
-            correctAnswer: "A method that is called when an object is created",
-          },
-          {
-            text: "What is a destructor in OOP?",
-            options: [
-              "A method that is called when an object is created",
-              "A method that is called when an object is destroyed",
-              "A method that is called when an object is modified",
-            ],
-            correctAnswer:
-              "A method that is called when an object is destroyed",
-          },
-          {
-            text: "What is method overloading in OOP?",
-            options: [
-              "The process of defining multiple methods with the same name but different parameters",
-              "The process of defining multiple methods with different names but the same parameters",
-              "The process of defining multiple methods with the same name and parameters",
-            ],
-            correctAnswer:
-              "The process of defining multiple methods with the same name but different parameters",
-          },
-          {
-            text: "What is method overriding in OOP?",
-            options: [
-              "The process of defining multiple methods with the same name but different parameters",
-              "The process of defining multiple methods with different names but the same parameters",
-              "The process of defining a method in a subclass that already exists in the superclass",
-            ],
-            correctAnswer:
-              "The process of defining a method in a subclass that already exists in the superclass",
-          },
-          {
-            text: "What is a static method in OOP?",
-            options: [
-              "A method that can be called without creating an instance of the class",
-              "A method that can only be called within the class",
-              "A method that is automatically called when an object is created",
-            ],
-            correctAnswer:
-              "A method that can be called without creating an instance of the class",
-          },
-          {
-            text: "What is a static variable in OOP?",
-            options: [
-              "A variable that can only be accessed within the class",
-              "A variable that is automatically initialized when an object is created",
-              "A variable that is shared among all instances of a class",
-            ],
-            correctAnswer:
-              "A variable that is shared among all instances of a class",
-          },
-          {
-            text: "What is a final variable in OOP?",
-            options: [
-              "A variable that cannot be changed after initialization",
-              "A variable that is automatically initialized when an object is created",
-              "A variable that is shared among all instances of a class",
-            ],
-            correctAnswer:
-              "A variable that cannot be changed after initialization",
-          },
-          {
-            text: "What is a final method in OOP?",
-            options: [
-              "A method that cannot be overridden in a subclass",
-              "A method that cannot be called without creating an instance of the class",
-              "A method that cannot be accessed outside of the class",
-            ],
-            correctAnswer: "A method that cannot be overridden in a subclass",
-          },
-          {
-            text: "What is a package in Java?",
-            options: [
-              "A collection of classes and interfaces",
-              "A single class",
-              "A single file",
-            ],
-            correctAnswer: "A collection of classes and interfaces",
-          },
-          {
-            text: "What is an interface in Java?",
-            options: [
-              "A class that cannot be instantiated",
-              "A class that cannot have methods",
-              "A blueprint of a class that defines a set of methods",
-            ],
-            correctAnswer:
-              "A blueprint of a class that defines a set of methods",
-          },
-          {
-            text: "What is a constructor chaining in Java?",
-            options: [
-              "Calling one constructor from another within the same class",
-              "Calling constructors from different classes",
-              "Creating multiple instances of a class",
-            ],
-            correctAnswer:
-              "Calling one constructor from another within the same class",
-          },
-          {
-            text: "What is method chaining in Java?",
-            options: [
-              "Calling multiple methods in sequence on the same object",
-              "Calling methods from different classes",
-              "Creating multiple instances of a class",
-            ],
-            correctAnswer:
-              "Calling multiple methods in sequence on the same object",
-          },
-          {
-            text: "What is the difference between an abstract class and an interface in Java?",
-            options: [
-              "An abstract class can have concrete methods, while an interface cannot",
-              "An interface can have fields, while an abstract class cannot",
-              "An abstract class can be instantiated, while an interface cannot",
-            ],
-            correctAnswer:
-              "An abstract class can have concrete methods, while an interface cannot",
-          },
-          {
-            text: "What is the purpose of the 'super' keyword in Java?",
-            options: [
-              "To call the constructor of the superclass",
-              "To call a static method of the superclass",
-              "To call a method of the subclass",
-            ],
-            correctAnswer: "To call the constructor of the superclass",
-          },
-          {
-            text: "What is method hiding in Java?",
-            options: [
-              "Hiding a method implementation in a superclass",
-              "Hiding a method implementation in a subclass",
-              "Hiding a method implementation in a static method",
-            ],
-            correctAnswer: "Hiding a method implementation in a subclass",
-          },
-          {
-            text: "What is method signature in Java?",
-            options: [
-              "The name and return type of a method",
-              "The parameters and return type of a method",
-              "The access modifiers and return type of a method",
-            ],
-            correctAnswer: "The name and return type of a method",
-          },
-          {
-            text: "What is method visibility in Java?",
-            options: [
-              "The ability to see the method within the same class",
-              "The ability to see the method within the same package",
-              "The ability to see the method from any class",
-            ],
-            correctAnswer: "The ability to see the method from any class",
-          },
-          {
-            text: "What is method abstraction in Java?",
-            options: [
-              "Hiding the implementation details of a method",
-              "Exposing the implementation details of a method",
-              "Removing a method from a class",
-            ],
-            correctAnswer: "Hiding the implementation details of a method",
-          },
-          {
-            text: "What is a lambda expression in Java?",
-            options: [
-              "A way to represent anonymous functions",
-              "A way to represent named functions",
-              "A way to represent global functions",
-            ],
-            correctAnswer: "A way to represent anonymous functions",
-          },
-          {
-            text: "What is the purpose of the 'this' keyword in Java?",
-            options: [
-              "To refer to the current object",
-              "To refer to the superclass",
-              "To refer to the subclass",
-            ],
-            correctAnswer: "To refer to the current object",
-          },
-          {
-            text: "What is a generic class in Java?",
-            options: [
-              "A class that can take any type as a parameter",
-              "A class that can only take primitive types as parameters",
-              "A class that cannot take any parameters",
-            ],
-            correctAnswer: "A class that can take any type as a parameter",
-          },
-          {
-            text: "What is method chaining in JavaScript?",
-            options: [
-              "Calling multiple methods in sequence on the same object",
-              "Calling methods from different objects",
-              "Creating multiple instances of an object",
-            ],
-            correctAnswer:
-              "Calling multiple methods in sequence on the same object",
-          },
-          {
-            text: "What is prototypal inheritance in JavaScript?",
-            options: [
-              "The ability of an object to inherit properties and methods from another object",
-              "The process of creating multiple instances of a class",
-              "The process of creating a new class based on an existing class",
-            ],
-            correctAnswer:
-              "The ability of an object to inherit properties and methods from another object",
-          },
-          {
-            text: "What is a closure in JavaScript?",
-            options: [
-              "A function that has access to its own scope, plus the scope of its parent function",
-              "A function that has access to the global scope",
-              "A function that has access to the scope of its child function",
-            ],
-            correctAnswer:
-              "A function that has access to its own scope, plus the scope of its parent function",
-          },
-          {
-            text: "What is the purpose of the 'new' keyword in JavaScript?",
-            options: [
-              "To create a new instance of an object",
-              "To call a constructor function",
-              "To create a new class",
-            ],
-            correctAnswer: "To create a new instance of an object",
-          },
-          {
-            text: "What is a callback function in JavaScript?",
-            options: [
-              "A function that is passed as an argument to another function",
-              "A function that calls another function",
-              "A function that is executed immediately",
-            ],
-            correctAnswer:
-              "A function that is passed as an argument to another function",
-          },
-          {
-            text: "What is event delegation in JavaScript?",
-            options: [
-              "Attaching event listeners to parent elements instead of individual child elements",
-              "Attaching event listeners to child elements instead of parent elements",
-              "Removing event listeners from elements",
-            ],
-            correctAnswer:
-              "Attaching event listeners to parent elements instead of individual child elements",
-          },
-          {
-            text: "What is a promise in JavaScript?",
-            options: [
-              "An object representing the eventual completion or failure of an asynchronous operation",
-              "A function that returns a value",
-              "An object representing a synchronous operation",
-            ],
-            correctAnswer:
-              "An object representing the eventual completion or failure of an asynchronous operation",
-          },
-          {
-            text: "What is asynchronous programming in JavaScript?",
-            options: [
-              "A programming paradigm that allows operations to be performed concurrently",
-              "A programming paradigm that allows operations to be performed sequentially",
-              "A programming paradigm that does not allow operations to be performed",
-            ],
-            correctAnswer:
-              "A programming paradigm that allows operations to be performed concurrently",
-          },
-          {
-            text: "What is the purpose of the 'await' keyword in JavaScript?",
-            options: [
-              "To wait for a promise to be resolved or rejected",
-              "To execute a function asynchronously",
-              "To handle errors in asynchronous code",
-            ],
-            correctAnswer: "To wait for a promise to be resolved or rejected",
-          },
-          {
-            text: "What is the purpose of the 'fetch' API in JavaScript?",
-            options: [
-              "To make HTTP requests",
-              "To create new objects",
-              "To manipulate the DOM",
-            ],
-            correctAnswer: "To make HTTP requests",
-          },
-          {
-            text: "What is a closure in Python?",
-            options: [
-              "A function that has access to its own scope, plus the scope of its parent function",
-              "A function that has access to the global scope",
-              "A function that has access to the scope of its child function",
-            ],
-            correctAnswer:
-              "A function that has access to its own scope, plus the scope of its parent function",
-          },
-          {
-            text: "What is the purpose of the 'yield' keyword in Python?",
-            options: [
-              "To return a value from a generator function",
-              "To call a function",
-              "To create a new class",
-            ],
-            correctAnswer: "To return a value from a generator function",
-          },
-          {
-            text: "What is a decorator in Python?",
-            options: [
-              "A function that modifies the behavior of another function",
-              "A function that returns another function",
-              "A function that returns an iterator",
-            ],
-            correctAnswer: "A function that returns an iterator",
-          },
-          {
-            text: "What is the purpose of the 'map' function in Python?",
-            options: [
-              "To apply a function to every item in an iterable",
-              "To create a new list",
-              "To concatenate multiple lists",
-            ],
-            correctAnswer: "To apply a function to every item in an iterable",
-          },
-          {
-            text: "What is the purpose of the 'filter' function in Python?",
-            options: [
-              "To filter elements from an iterable based on a function",
-              "To create a new list",
-              "To concatenate multiple lists",
-            ],
-            correctAnswer:
-              "To filter elements from an iterable based on a function",
-          },
-          {
-            text: "What is the purpose of the 'reduce' function in Python?",
-            options: [
-              "To apply a function to pairs of elements and reduce them to a single value",
-              "To create a new list",
-              "To concatenate multiple lists",
-            ],
-            correctAnswer:
-              "To apply a function to pairs of elements and reduce them to a single value",
-          },
-          {
-            text: "What is a set in Python?",
-            options: [
-              "An unordered collection of unique elements",
-              "An ordered collection of elements",
-              "A mutable collection of elements",
-            ],
-            correctAnswer: "An unordered collection of unique elements",
-          },
-          {
-            text: "What is a dictionary in Python?",
-            options: [
-              "A collection of key-value pairs",
-              "An ordered collection of elements",
-              "A mutable collection of elements",
-            ],
-            correctAnswer: "A collection of key-value pairs",
-          },
-          {
-            text: "What is the purpose of the 'zip' function in Python?",
-            options: [
-              "To combine multiple iterables into a single iterable",
-              "To create a new list",
-              "To concatenate multiple lists",
-            ],
-            correctAnswer:
-              "To combine multiple iterables into a single iterable",
-          },
-          {
-            text: "What is a module in Python?",
-            options: ["A file containing Python code", "A class", "A function"],
-            correctAnswer: "A file containing Python code",
-          },
-          {
-            text: "What is a package in Python?",
-            options: [
-              "A directory containing Python modules",
-              "A single Python file",
-              "A class",
-            ],
-            correctAnswer: "A directory containing Python modules",
-          },
-          {
-            text: "What is the purpose of the '__init__' method in Python classes?",
-            options: [
-              "To initialize an object's attributes",
-              "To define class methods",
-              "To create a new instance of a class",
-            ],
-            correctAnswer: "To initialize an object's attributes",
-          },
+         
+        {
+    text: "What is Nomophobia?",
+    options: [
+      "Fear of heights",
+      "Fear of mobile phones",
+      "Fear of public speaking",
+    ],
+    correctAnswer: "Fear of mobile phones",
+  },
+  {
+    text: "What are some health implications of Nomophobia?",
+    options: [
+      "Depression and anxiety",
+      "Improved mental health",
+      "Physical fitness",
+    ],
+    correctAnswer: "Depression and anxiety",
+  },
+  {
+    text: "Where can you find Open Educational Resources (OERs)?",
+    options: [
+      "Only in libraries",
+      "Online repositories and websites",
+      "Printed textbooks only",
+    ],
+    correctAnswer: "Online repositories and websites",
+  },
+  {
+    text: "What are some key features of online applications in education?",
+    options: [
+      "Limited access to resources",
+      "Ability to interact and collaborate online",
+      "No flexibility in learning pace",
+    ],
+    correctAnswer: "Ability to interact and collaborate online",
+  },
+  {
+    text: "How can you search for information effectively on the internet?",
+    options: [
+      "Use only single keywords",
+      "Use two or more keywords and refine your search if necessary",
+      "Use long phrases as keywords for better results",
+    ],
+    correctAnswer: "Use two or more keywords and refine your search if necessary",
+  },
+  {
+    text: "What is an OER?",
+    options: [
+      "A paid educational resource",
+      "An openly licensed, freely available educational material",
+      "A restricted educational material",
+    ],
+    correctAnswer: "An openly licensed, freely available educational material",
+  },
+  {
+    text: "What is a key benefit of using OERs for learners?",
+    options: [
+      "Limited access to learning materials",
+      "Ability to learn at their own pace",
+      "Increased cost of textbooks",
+    ],
+    correctAnswer: "Ability to learn at their own pace",
+  },
+  {
+    text: "What is a consideration before adopting an OER?",
+    options: [
+      "The popularity of the resource",
+      "Alignment with learning objectives",
+      "The cost of the resource",
+    ],
+    correctAnswer: "Alignment with learning objectives",
+  },
+  {
+    text: "What constitutes cyberbullying?",
+    options: [
+      "Using digital technologies to intimidate individuals",
+      "Using the internet for research purposes",
+      "Using social media for entertainment",
+    ],
+    correctAnswer: "Using digital technologies to intimidate individuals",
+  },
+  {
+    text: "How can teachers prevent cyberbullying?",
+    options: [
+      "By encouraging cyberbullying behavior",
+      "By seeking help from trusted sources",
+      "By ignoring incidents of cyberbullying",
+    ],
+    correctAnswer: "By seeking help from trusted sources",
+  },
+  {
+    text: "What are some health issues associated with ICT usage?",
+    options: [
+      "Improved eyesight",
+      "Back ache and sight problems",
+      "Reduced risk of addiction",
+    ],
+    correctAnswer: "Back ache and sight problems",
+  },
+  {
+    text: "How can sight problems be prevented?",
+    options: [
+      "By staring at screens for long periods",
+      "By taking regular breaks and resting the eyes",
+      "By avoiding proper lighting in workspaces",
+    ],
+    correctAnswer: "By taking regular breaks and resting the eyes",
+  },
+  {
+    text: "What constitutes plagiarism?",
+    options: [
+      "Properly acknowledging the source of copied works",
+      "Using material from the internet without citation",
+      "Collaborating with others on a project",
+    ],
+    correctAnswer: "Using material from the internet without citation",
+  },
+  {
+    text: "How can plagiarism be avoided?",
+    options: [
+      "Ignoring the source of copied works",
+      "Citing assistance from colleagues or external sources",
+      "Using material written by professional agencies without citation",
+    ],
+    correctAnswer: "Citing assistance from colleagues or external sources",
+  },
+  {
+    text: "What is the purpose of the '__init__' method in Python classes?",
+    options: [
+      "To initialize an object's attributes",
+      "To define class methods",
+      "To create a new instance of a class",
+    ],
+    correctAnswer: "To initialize an object's attributes",
+  },
+  {
+    text: "What is the most common file format used in Excel?",
+    options: [
+      ".xlsx",
+      ".docx",
+      ".pdf",
+    ],
+    correctAnswer: ".xlsx",
+  },
+  {
+    text: "How do you add a new row in Excel?",
+    options: [
+      "Right-click and select 'Insert'",
+      "Press Ctrl+C",
+      "Press Ctrl+V",
+    ],
+    correctAnswer: "Right-click and select 'Insert'",
+  },
+  {
+    text: "What does OER stand for?",
+    options: [
+      "Open Educational Resources",
+      "Online Educational Resources",
+      "Original Educational Resources",
+    ],
+    correctAnswer: "Open Educational Resources",
+  },
+  {
+    text: "What is a key benefit of using OERs for teachers?",
+    options: [
+      "Increased revenue",
+      "Freedom to adapt materials",
+      "Limited access to resources",
+    ],
+    correctAnswer: "Freedom to adapt materials",
+  },
+  {
+    text: "What is the primary purpose of a search engine?",
+    options: [
+      "To restrict access to information",
+      "To provide access to a vast amount of information",
+      "To charge users for information",
+    ],
+    correctAnswer: "To provide access to a vast amount of information",
+  },
+  {
+    text: "What is a recommendation for using search engines effectively?",
+    options: [
+      "Use single keywords",
+      "Use two or more keywords and refine your search if necessary",
+      "Ignore search results",
+    ],
+    correctAnswer: "Use two or more keywords and refine your search if necessary",
+  },
+  {
+    text: "What is cyberbullying?",
+    options: [
+      "Using digital technologies to intimidate individuals",
+      "Using the internet for research purposes",
+      "Using social media for entertainment",
+    ],
+    correctAnswer: "Using digital technologies to intimidate individuals",
+  },
+  {
+    text: "How can teachers prevent cyberbullying?",
+    options: [
+      "By encouraging cyberbullying behavior",
+      "By seeking help from trusted sources",
+      "By ignoring incidents of cyberbullying",
+    ],
+    correctAnswer: "By seeking help from trusted sources",
+  },
+  {
+    text: "What are some health issues associated with ICT usage?",
+    options: [
+      "Improved eyesight",
+      "Back ache and sight problems",
+      "Reduced risk of addiction",
+    ],
+    correctAnswer: "Back ache and sight problems",
+  },
+  {
+    text: "How can sight problems be prevented?",
+    options: [
+      "By staring at screens for long periods",
+      "By taking regular breaks and resting the eyes",
+      "By avoiding proper lighting in workspaces",
+    ],
+    correctAnswer: "By taking regular breaks and resting the eyes",
+  },
+  {
+    text: "What constitutes plagiarism?",
+    options: [
+      "Properly acknowledging the source of copied works",
+      "Using material from the internet without citation",
+      "Collaborating with others on a project",
+    ],
+    correctAnswer: "Using material from the internet without citation",
+  },
+  {
+    text: "How can plagiarism be avoided?",
+    options: [
+      "Ignoring the source of copied works",
+      "Citing assistance from colleagues or external sources",
+      "Using material written by professional agencies without citation",
+    ],
+    correctAnswer: "Citing assistance from colleagues or external sources",
+  },
+  {
+    text: "What is Nomophobia?",
+    options: [
+      "Fear of heights",
+      "Fear of mobile phones",
+      "Fear of public speaking",
+    ],
+    correctAnswer: "Fear of mobile phones",
+  },
+  {
+    text: "What are some health implications of Nomophobia?",
+    options: [
+      "Depression and anxiety",
+      "Improved mental health",
+      "Physical fitness",
+    ],
+    correctAnswer: "Depression and anxiety",
+  },
+  {
+    text: "Where can you find Open Educational Resources (OERs)?",
+    options: [
+      "Only in libraries",
+      "Online repositories and websites",
+      "Printed textbooks only",
+    ],
+    correctAnswer: "Online repositories and websites",
+  },
+  {
+    text: "What are some key features of online applications in education?",
+    options: [
+      "Limited access to resources",
+      "Ability to interact and collaborate online",
+      "No flexibility in learning pace",
+    ],
+    correctAnswer: "Ability to interact and collaborate online",
+  },
+  {
+    text: "How can you search for information effectively on the internet?",
+    options: [
+      "Use only single keywords",
+      "Use two or more keywords and refine your search if necessary",
+      "Use long phrases as keywords for better results",
+    ],
+    correctAnswer: "Use two or more keywords and refine your search if necessary",
+  },
+  {
+    text: "What is an OER?",
+    options: [
+      "A paid educational resource",
+      "An openly licensed, freely available educational material",
+      "A restricted educational material",
+    ],
+    correctAnswer: "An openly licensed, freely available educational material",
+  },
+  {
+    text: "What is a key benefit of using OERs for learners?",
+    options: [
+      "Limited access to learning materials",
+      "Ability to learn at their own pace",
+      "Increased cost of textbooks",
+    ],
+    correctAnswer: "Ability to learn at their own pace",
+  }
 
           // Add more questions for Category 2 here
         ],
@@ -2321,11 +2167,11 @@ export default {
       return Math.round(this.totalQuestions * this.passingScorePercentage);
     },
     correctImage() {
-      return require('@/assets/correct.png');
+      return require("@/assets/correct.png");
     },
     cancelImage() {
-      return require('@/assets/cancel.png');
-    }
+      return require("@/assets/cancel.png");
+    },
   },
 
   methods: {
@@ -2530,7 +2376,6 @@ export default {
   width: 100px;
 }
 .container {
-  
   position: relative;
 }
 
@@ -2602,7 +2447,8 @@ export default {
     opacity: 0;
   }
 }
-.thumbs-up, .thumbs-down {
+.thumbs-up,
+.thumbs-down {
   position: absolute; /* Ensure that the elements are positioned relative to their containing block */
   z-index: 1; /* Set the z-index value */
 }
@@ -2790,7 +2636,8 @@ export default {
   text-decoration: none;
 }
 .footer-social {
-  text-align: center; /* Align icons to the center */
+  width: 100%;
+  align-content: center;
 }
 
 .footer-social ul {
@@ -2815,7 +2662,7 @@ export default {
   height: 100%;
   position: relative;
   /* Apply the GIF as the background image */
-  background-image: url('../assets/background/Love.gif'); /* Adjust the path as needed */
+  background-image: url("../assets/background/Love.gif"); /* Adjust the path as needed */
   background-size: cover; /* Adjust as needed */
   background-position: center; /* Adjust as needed */
   /* Additional styles for positioning and appearance */

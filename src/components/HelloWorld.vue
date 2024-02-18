@@ -24,6 +24,8 @@
               If you're unsure, take your best guess!<br />
               Passing Grade: To pass the quiz, you'll need to score 80% or
               higher.<br />
+Credit to authors and contents from the Training Manual For Non-Professional Teachers'<br/>
+This is a personal training guide.
             </li>
           </ul>
         </div>
